@@ -26,7 +26,7 @@
   <p align="center">
     GetIn-EXP is the job-finder platform created for young inexperienced people who want to enter the laboral market, wether they have high level studies (University, FP...) or not. Is in our core bringing the job offers closer to this population segment, making easier the task of transitioning from oriented knowledge to the first, real work experience.
     <br />
-    <a href=https://github.com/GetIn-Exp/GetIn-EXP_web/wiki"><strong>Explore the docs »</strong></a>
+    <a href=https://github.com/GetIn-Exp/GetIn-EXP_web/wiki><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="">View Demo</a>
