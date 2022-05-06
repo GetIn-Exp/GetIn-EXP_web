@@ -21,6 +21,7 @@ $gray-500: #adb5bd !default;
 $gray-600: #8898aa !default;   // Line footer color
 $gray-700: #525f7f !default;   // Line p color
 $gray-800: #32325d !default;   // Line heading color
+$gray-850: #272749 !default;   // Line title heading color
 $gray-900: #212529 !default;
 $black:    #000 !default;
 
@@ -345,16 +346,25 @@ $heading-letter-spacing:      .025em !default;
 $heading-font-size:           .95rem !default;
 $heading-text-transform:      uppercase !default;
 $heading-font-weight:         $headings-font-weight !default;
+$heading-shadow-light:        .04em .04em 0 #9cb8b3;
+$heading-shadow-dark:         .04em .04em 0 #212529;
 
-$heading-title-letter-spacing:      .025em !default;
-$heading-title-font-size:           1.375rem !default;
-$heading-title-font-weight:         $font-weight-bold !default;
+$heading-title-letter-spacing:      .155em !default;
+$heading-title-font-size:           2.575rem !default;
+$heading-title-font-weight:         $font-weight-extra-bold !default;
 $heading-title-text-transform:      uppercase !default;
+$heading-title-color-dark:          $gray-900 !default;
+$heading-title-color-light:         $gray-100 !default;
 
-$heading-section-letter-spacing:      .025em !default;
+$heading-subtitle-letter-spacing:      .020em !default;
+$heading-subtitle-font-size:           1.375rem !default;
+$heading-subtitle-font-weight:         $font-weight-bold !default;
+$heading-subtitle-text-transform:      uppercase !default;
+
+$heading-section-letter-spacing:      .020em !default;
 $heading-section-font-size:           1.375rem !default;
 $heading-section-font-weight:         $font-weight-bold !default;
-$heading-section-text-transform:      uppercase !default;
+$heading-section-text-transform:      normal !default;
 
 $display1-size:               3.3rem !default;
 $display2-size:               2.75rem !default;
@@ -886,3 +896,16 @@ $footer-link-color: $gray-600 !default;
 $footer-link-hover-color: $gray-700 !default;
 $footer-heading-color: $gray-600 !default;
 $footer-heading-font-size: $font-size-sm !default;
+
+// Oferts
+$white-color:                #FFFFFF !default;
+$black-color:                #2c2c2c !default;
+
+
+$opacity-gray-3: rgba(222,222,222, .3) !default;
+$opacity-gray-5: rgba(222,222,222, .5) !default;
+$opacity-gray-8: rgba(222,222,222, .8) !default;
+
+
+$opacity-5: rgba(255,255,255, .5) !default;
+$opacity-8: rgba(255,255,255, .8) !default;

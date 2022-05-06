@@ -14,6 +14,11 @@
   background-color: $white !important;
 }
 
+.bg-gradient-ofert {
+  @include linear-gradient(rgba($black-color,.20), rgba(0, 173, 104, 0.6));
+}
+
+
 .bg-transparent {
   background-color: transparent !important;
 }

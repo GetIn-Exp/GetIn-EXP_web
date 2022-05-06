@@ -7,6 +7,7 @@ import Landing from "./views/Landing.vue";
 import Login from "./views/Login.vue";
 import Register from "./views/Register.vue";
 import Profile from "./views/Profile.vue";
+import Oferts from "./views/Oferts";
 
 Vue.use(Router);
 
@@ -46,6 +47,15 @@ export default new Router({
       components: {
         header: AppHeader,
         default: Register,
+        footer: AppFooter
+      }
+    },
+    {
+      path: "/oferts/:id",
+      name: "oferts",
+      components: {
+        header: AppHeader,
+        default: Oferts,
         footer: AppFooter
       }
     },
