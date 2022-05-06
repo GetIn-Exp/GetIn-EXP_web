@@ -1,6 +1,7 @@
 <template>
   <div>
     <header>
+      <!-- Home Navigation Menu (Header) -->
       <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
         <div class="container">
           <!-- Get-in-EXP LOGO -->
@@ -86,6 +87,7 @@
                   class="nav-link"
                   >LOG IN</a
                 >
+
                 <div
                   aria-labelledby="nav-inner-primary_dropdown_1"
                   class="dropdown-menu dropdown-menu-right"
@@ -105,18 +107,19 @@
     <body>
       <div class="container pt-lg-md">
         <div class="row justify-content-center">
+
+
+          <!-- First Column: search parameters and filters -->
           <div class="col-lg-4">
-            <!-- primary refers to the color! secondary also available -->
             <card
               id="home-card-search"
-              type="primary"
               shadow
               header-classes="bg-pb-5"
               body-classes="px-lg-1 py-lg-1"
-              class="border-0 myred roundered"
+              class="border-0 myred roundered mb-5"
             >
-              <div class="card-body">
-                <div id="home-form-search" class="input-group">
+              <div class="card-body pb-0">
+                <div id="home-form-search" class="form-group">
                   <!---->
                   <div id="home-form-search-what" class="input-group mb-2">
                     <!----><!---->
@@ -133,7 +136,7 @@
                     <!---->
                   </div>
 
-                  <div id="home-form-search-where" class="input-group">
+                  <div id="home-form-search-where" class="input-group mb-2">
                     <!----><!---->
                     <input
                       aria-describedby="addon-right addon-left"
@@ -147,82 +150,54 @@
                     </div>
                     <!---->
                   </div>
-
-                </div>
-              </div>
-            </card>
-
-            <br /><br />
-
-            <card
-              id="offerts-search-pannel"
-              type="primary"
-              shadow
-              header-classes="pb-5"
-              body-classes="px-lg-1 py-lg-1"
-              class="border-0 myred roundered"
-            >
-              <div class="card-body row justify-content-center">
-                <div class="h5 card-title text-white font-weight-bold mb-4">
-                  Advanced Options
                 </div>
 
-
-                
-
-
-                <div id="home-form-filter" class="input-group">
-                  <!---->
+                <div id="home-form-filter" class="form-group">
+                  <button
+                    id="home-form-btn"
+                    type="button"
+                    class="btn btn-icon btn-style"
+                  >
+                    <!----><!----><!---->
+                    <span class="btn-inner--icon"
+                      ><i class="ni ni-settings-gear-65"></i
+                    ></span>
+                    Advanced filters
+                  </button>
                   
-                  <div id="home-form-datepicker" class="input-group input-daterange datepicker row align-items-center">
-                    <div class="col">
-                        <base-input addon-left-icon="ni ni-calendar-grid-58">
-                            <flat-picker slot-scope="{focus, blur}"
-                                        @on-open="focus"
-                                        @on-close="blur"
-                                        :config="{allowInput: true, mode: 'range',}"
-                                        class="form-control datepicker"
-                                        v-model="dates.range">
-                            </flat-picker>
-                        </base-input>
-                      </div>
-                  </div>
+                  <div
+                    id="home-form-datepicker"
+                    class="input-group input-daterange datepicker"
+                  >
+                    <base-input
+                      name="calendar"
+                      addon-left-icon="ni ni-calendar-grid-58"
+                      label="Antes de"
+                      labelClasses="input-group-text label-style text-uppercase"
+                    >
+                      <flat-picker
+                        slot-scope="{ focus, blur }"
+                        @on-open="focus"
+                        @on-close="blur"
+                        :config="{ allowInput: true }"
+                        class="form-control datepicker"
+                        v-model="dates.simple"
+                      >
+                      </flat-picker>
+                    </base-input>
 
-                  <div id="home-form-filter-1" class="input-group mb-2">
-                    <!----><!---->
-                    <input
-                      aria-describedby="addon-right addon-left"
-                      placeholder="QUÉ"
-                      class="form-control"
-                    />
-                    <div class="input-group-append">
-                      <span class="input-group-text"
-                        ><i class="ni ni-zoom-split-in"></i
-                      ></span>
+                    <div id="home-form-dropdown" class="input-group">
+                      <text-dropdown/>
                     </div>
-                    <!---->
-                  </div>
-
-
-                  <div id="home-form-filter-2" class="input-group">
-                    <!----><!---->
-                    <input
-                      aria-describedby="addon-right addon-left"
-                      placeholder="DÓNDE"
-                      class="form-control"
-                    />
-                    <div class="input-group-append">
-                      <span class="input-group-text"
-                        ><i class="ni ni-pin-3"></i
-                      ></span>
-                    </div>
-                    <!---->
                   </div>
                 </div>
               </div>
+            
             </card>
           </div>
+          
 
+          <!--_Second Column: offerts list -->
           <div class="col-lg-8">
             <div id="offerts-panel" class="text-center text-muted mb-4">
               PANEL DE OFERTAS
@@ -235,7 +210,8 @@
 </template>
 
 <script>
-import flatPicker from "vue-flatpickr-component";
+import flatPicker from "vue-flatpickr-component"
+import TextDropdown from "./components/TextDropdown";
 
 import Hero from "./components/Hero";
 import AppHeader from "../layout/AppHeader";
@@ -250,32 +226,118 @@ import Carousel from "./components/Carousel";
 import Icons from "./components/Icons";
 import Examples from "./components/Examples";
 import DownloadSection from "./components/DownloadSection";
-import DatePickers from './components/JavascriptComponents/DatePickers.vue';
+import DatePickers from "./components/JavascriptComponents/DatePickers.vue";
 
 export default {
   name: "home",
   components: {
-    flatPicker
+    flatPicker,
+    TextDropdown
   },
 
   data() {
     return {
       dates: {
         simple: "2018-07-17",
-        range: "2018-07-17 to 2018-07-19"
-      }
+      },
     };
-  }
-
+  },
 };
 </script>
 
-<style scoped>
+<!-- Can't be scoped if we pretend to export label-style outside -->
+<style>
 .roundered {
   border-radius: 1.5rem;
 }
 
 .myred {
   background-color: #f5365c !important;
+}
+
+.btn-style {
+  width: 100%;
+  border: 2px solid black;
+  color: white;
+  background-color: #f5365c;
+}
+
+.label-style {
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #adb5bd;
+  background-color: #fff;
+  border: 1px solid #cad1d7;
+  border-radius: 0.25rem;
+}
+
+.dropdown-categories{
+    position: absolute;
+    top: 100%;
+    right: 100% !important;
+    float: left;
+    background-color: inherit;
+    background-clip: padding-box;
+}
+
+/* Not used */
+.form-btn-container {
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.form-btn-container .form-btn {
+  position: absolute; /* The position also affects the behaviour of the transparency */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: white;
+  background-color: #f5365c;
+  border-color: black;
+}
+
+/* Same pattern as A) to move the child .bg-text relatively to its father */
+.main-title h2 {
+  position: relative;
+  text-transform: uppercase; /* Initialy, Text to uppercase */
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+.main-title h2 span {
+  color: var(--color-secondary);
+}
+
+.main-title h2 .bg-text {
+  position: absolute; /* The position also affects the behaviour of the transparency */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--color-grey-5); /* Color superposition! As transparent */
+  transition: all 0.4s ease-in-out;
+  z-index: -11;
+  font-weight: 800;
+  font-size: 6.3rem;
+}
+
+.form-hr {
+  display: block;
+  position: relative;
+  padding: 0;
+  margin: 8px auto;
+  height: 0;
+  width: 100%;
+  max-height: 0;
+  font-size: 1px;
+  line-height: 0;
+  clear: both;
+  border: none;
+  border-top: 1px solid #adb5bd;
+  border-bottom: 1px solid #adb5bd;
 }
 </style>

@@ -7,6 +7,7 @@ import Landing from "./views/Landing.vue";
 import Login from "./views/Login.vue";
 import Register from "./views/Register.vue";
 import Profile from "./views/Profile.vue";
+import Home from "./views/Home.vue";
 
 Vue.use(Router);
 
@@ -29,6 +30,15 @@ export default new Router({
         header: AppHeader,
         default: Landing,
         footer: AppFooter
+      }
+    },
+    {
+      path: "/home",
+      name: "homepage",
+      components: {
+        //header: AppHeader,
+        default: Home,
+        //footer: AppFooter
       }
     },
     {
