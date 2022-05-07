@@ -107,8 +107,6 @@
     <body>
       <div class="container pt-lg-md">
         <div class="row justify-content-center">
-
-
           <!-- First Column: search parameters and filters -->
           <div class="col-lg-4">
             <card
@@ -164,7 +162,7 @@
                     ></span>
                     Advanced filters
                   </button>
-                  
+
                   <div
                     id="home-form-datepicker"
                     class="input-group input-daterange datepicker"
@@ -187,32 +185,62 @@
                     </base-input>
 
                     <div id="home-form-dropdown" class="input-group">
-                      <text-dropdown/>
+                      <text-dropdown />
                     </div>
                   </div>
                 </div>
               </div>
-            
             </card>
           </div>
-          
 
           <!--_Second Column: offerts list -->
           <div class="col-lg-8">
-            <div id="offerts-panel" class="text-center text-muted mb-4">
-              PANEL DE OFERTAS
+
+            <div class="mb-3 ml-4 mr-4">
+              <h4> Resultados de <span class="font-weight-bold text-uppercase"> oferta </span></h4>
+              <small class="text-uppercase font-weight-bold">
+              25 resultados en Location
+              </small>
+              <hr class="mt-0" style="border: 1px solid black">
+            </div>
+              
+            <div class="row justify-content-center mb-3 ml-4 mr-4"></div>
+              <ul id="offerts-panel">
+                
+                <offert-card>
+                  <template #title>
+                    First Offert
+                  </template>
+                  <template #description>
+                    First Offert
+                  </template>
+                  <template #date>
+                    07 - 05 - 2022 
+                  </template>
+                </offert-card>
+
+                <offert-card/>
+                <offert-card/>
+                <offert-card/>
+                <offert-card/>
+                <offert-card/>
+
+
+              </ul>
             </div>
           </div>
-        </div>
       </div>
+
     </body>
   </div>
 </template>
 
 <script>
-import flatPicker from "vue-flatpickr-component"
+import flatPicker from "vue-flatpickr-component";
 import TextDropdown from "./components/TextDropdown";
-
+import OffertCard from "./components/OffertCard.vue";
+import TabsSection from "./components/JavascriptComponents/TabsSection";
+import ProgressSection from "./components/JavascriptComponents/ProgressPagination";
 import Hero from "./components/Hero";
 import AppHeader from "../layout/AppHeader";
 import AppFooter from "../layout/AppFooter";
@@ -232,7 +260,10 @@ export default {
   name: "home",
   components: {
     flatPicker,
-    TextDropdown
+    TextDropdown,
+    TabsSection,
+    ProgressSection,
+    OffertCard,
   },
 
   data() {
@@ -272,13 +303,24 @@ export default {
   border-radius: 0.25rem;
 }
 
-.dropdown-categories{
-    position: absolute;
-    top: 100%;
-    right: 100% !important;
-    float: left;
-    background-color: inherit;
-    background-clip: padding-box;
+.dropdown-categories {
+  position: absolute;
+  top: 100%;
+  right: 100% !important;
+  float: left;
+  background-color: inherit;
+  background-clip: padding-box;
+}
+
+#offerts-panel{
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#offerts-panel > li{
+  margin-bottom: 1rem;
 }
 
 /* Not used */
