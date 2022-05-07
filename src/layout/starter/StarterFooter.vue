@@ -1,81 +1,66 @@
 <template>
-    <footer class="footer has-cards">
-        <div class="container container-lg">
-            <div class="row">
-                <div class="col-md-6 mb-5 mb-md-0">
-                    <div class="card card-lift--hover shadow border-0">
-                        <router-link to="/landing" title="Landing Page">
-                            <img v-lazy="'img/theme/landing.jpg'" class="card-img">
-                        </router-link>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-5 mb-lg-0">
-                    <div class="card card-lift--hover shadow border-0">
-                        <router-link to="/profile" title="Profile Page">
-                            <img v-lazy="'img/theme/profile.jpg'" class="card-img">
-                        </router-link>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row row-grid align-items-center my-md">
-                <div class="col-lg-6">
-                    <h3 class="text-primary font-weight-light mb-2">Thank you for supporting us!</h3>
-                    <h4 class="mb-0 font-weight-light">Let's get in touch on any of these platforms.</h4>
-                </div>
-                <div class="col-lg-6 text-lg-center btn-wrapper">
-                    <a target="_blank" href="https://twitter.com/creativetim"
-                       class="btn btn-neutral btn-icon-only btn-twitter btn-round btn-lg" data-toggle="tooltip"
-                       data-original-title="Follow us">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                    <a target="_blank" href="https://www.facebook.com/creativetim"
-                       class="btn btn-neutral btn-icon-only btn-facebook btn-round btn-lg" data-toggle="tooltip"
-                       data-original-title="Like us">
-                        <i class="fa fa-facebook-square"></i>
-                    </a>
-                    <a target="_blank" href="https://dribbble.com/creativetim"
-                       class="btn btn-neutral btn-icon-only btn-dribbble btn-lg btn-round" data-toggle="tooltip"
-                       data-original-title="Follow us">
-                        <i class="fa fa-dribbble"></i>
-                    </a>
-                    <a target="_blank" href="https://github.com/creativetimofficial"
-                       class="btn btn-neutral btn-icon-only btn-github btn-round btn-lg" data-toggle="tooltip"
-                       data-original-title="Star on Github">
-                        <i class="fa fa-github"></i>
-                    </a>
-                </div>
-            </div>
-            <hr>
-            <div class="row align-items-center justify-content-md-between">
-                <div class="col-md-6">
-                    <div class="copyright">
-                        &copy; {{year}}
-                        <a href="https://www.creative-tim.com" target="_blank" rel="noopener">Creative Tim</a> & <a href="https://www.binarcode.com" target="_blank" rel="noopener">Binar Code</a>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <ul class="nav nav-footer justify-content-end">
-                        <li class="nav-item">
-                            <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About
-                                Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="https://github.com/creativetimofficial/argon-design-system/blob/master/LICENSE.md"
-                               class="nav-link" target="_blank">MIT License</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
+  <footer class="page-footer bg-lighter font-small stylish-color-dark pt-4" style="padding-left: 0px;">
+
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left">
+
+      <!-- Grid row -->
+      <div class="row justify-content-center">
+
+
+        <!-- Content -->
+        <h4 class="font-weight-bold text-center text-default text-uppercase mt-3 mb-4 ">About Us</h4>
+        <p class="text-center col-8 mb-4">Here you can discover the perfect job offer that best suits your skills. We help young profiles who are
+          willing to start working and doesn't know where to start. If you want more information about us, don´t hesitate
+          to follow us in social networks. Get-In Contact!
+        </p>
+
+        <!-- Social buttons -->
+        <ul class="list-unstyled list-inline text-center ">
+          <li class="list-inline-item ">
+            <a style="font-size: 2.00rem" class="my-btn btn-floating btn-sm mx-1 waves-effect waves-light">
+              <i class="fab fa-facebook text-primary"> </i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a style="font-size: 2.00rem" class="btn-floating btn-tw btn-lg mx-1 waves-effect waves-light">
+              <i class="fab fa-twitter text-primary"> </i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a style="font-size: 2.00rem" class="btn-floating btn-gplus btn-lg mx-1 waves-effect waves-light">
+              <i class="fab fa-google-plus text-primary"> </i>
+            </a>
+          </li>
+          <li class="list-inline-item">
+            <a style="font-size: 2.00rem" class="btn-floating btn-li btn-lg mx-1 waves-effect waves-light">
+              <i class="fab fa-linkedin-in text-primary"> </i>
+            </a>
+          </li>
+        </ul>
+        <!-- Social buttons -->
+      </div>
+    </div>
+    <br>
+
+    <!-- Call to action -->
+    <ul class="list-unstyled list-inline text-center py-2">
+      <li class="list-inline-item">
+        <h5 class="mb-1 text-default">Register for free</h5>
+      </li>
+      <li class="list-inline-item">
+        <a href="#!" class="btn btn-primary btn-rounded waves-effect waves-light">Sign up!</a>
+      </li>
+    </ul>
+    <!-- Call to action -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center text-default py-3 ">© 2022 Copyright:
+      <a href="#"> Get-In Exp.com</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
 </template>
 <script>
 export default {
