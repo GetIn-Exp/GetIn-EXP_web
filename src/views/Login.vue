@@ -25,9 +25,9 @@
                             <div class="login-form d-flex f-column no-social1">
                               <div class="form-box">
                                 <div class="form-input email d-flex f-column">
-                                  <input id="email-input" type="email" name="email" placeholder=" " v-model="username">
-                                  <label for="email-input">Email</label>
-                                  <span class="error-label d-none">Email is not correct</span>
+                                  <input id="email-input" type="text" name="username" placeholder=" " v-model="username">
+                                  <label for="email-input">Username</label>
+                                  <span class="error-label d-none">Username is not correct</span>
                                 </div>
                                 <div v-if="pswHidden" class="form-input password d-flex f-column">
                                   <input id="password-input-hidden" class="error" type="password" name="password" placeholder=" " v-model="password">
@@ -393,7 +393,7 @@ export default {
             this.goToHomePage()
           }
           else if (i+1 === profiles.length) {
-            //this.loginErrorAlert()
+            this.loginErrorAlert()
             this.initForm()
           }
         }

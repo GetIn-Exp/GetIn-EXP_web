@@ -42,9 +42,7 @@ export default new Router({
       path: "/register",
       name: "register",
       components: {
-        header: AppHeader,
         default: Register,
-        footer: AppFooter
       }
     },
     {
