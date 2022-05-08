@@ -13,18 +13,18 @@
                 <div class="col-lg-3 order-lg-2">
                   <div class="card-profile-image">
                     <a href="#">
-                      <img  v-bind:src="profiles[0].image" class="rounded-profile-photo photo-container" shadow>
+                      <img  v-bind:src="currentProfile.image" class="rounded-profile-photo photo-container" shadow>
                     </a>
                   </div>
                 </div>
               </div>
             </div>
           </card>
-        <h3 class="profile-title retroshadow">{{ this.profiles[0].name}} {{this.profiles[0].surnames}}</h3>
-        <p class="category">{{ this.profiles[0].job }}</p>
+        <h3 class="profile-title retroshadow">{{ this.currentProfile.name}} {{this.currentProfile.surnames}}</h3>
+        <p class="category">{{this.currentProfile.job }}</p>
         <div class="content">
           <h3 class="title">About me</h3>
-          <h5 class="description"> {{this.profiles[0].aboutMe}}</h5>
+          <p class="description">{{this.currentProfile.aboutMe}}</p>
         </div>
       </div>
     </div>
@@ -68,12 +68,12 @@
                   PROFILE SUMMARY
                 </template>
                 <div class="mb-3">
-                  <small class="text-uppercase"><b>Profile Type: </b>{{profiles[0].profile_type}}</small>
+                  <small class="text-uppercase"><b>Profile Type: </b>{{currentProfile.profile_type}}</small>
                 </div>
                 <div class="mb-3">
                   <small class="text-uppercase"><b>Interests:</b></small>
                 </div>
-                <div v-for="(interest) in profiles[0].interests" class="container" v-bind:key="interest.name">
+                <div v-for="(interest) in currentProfile.interests" class="container" v-bind:key="interest.name">
                     <base-button class="btn-1 buttonInterests mt-1" outline rounded >{{ interest.name }}</base-button>
                 </div>
               </tab-pane>
@@ -85,7 +85,7 @@
                   </svg>
                   LANGUAGES
                 </template>
-                <div v-for="(language) in profiles[0].languages" class="cards-list" v-bind:key="language.name">
+                <div v-for="(language) in currentProfile.languages" class="cards-list" v-bind:key="language.name">
                   <div class="cardLanguage">
                     <div class="card_image"></div>
                     <div class="card_title title-white">
@@ -105,7 +105,7 @@
                   </svg>
                   CERFICATES
                 </template>
-                <div v-for="(certificate) in profiles[0].certificates" class="cards-list" v-bind:key="certificate.title">
+                <div v-for="(certificate) in currentProfile.certificates" class="cards-list" v-bind:key="certificate.title">
                   <div class="cardLanguage">
                     <div class="card_image"></div>
                     <div class="card_title title-white">
@@ -123,7 +123,7 @@
                   </svg>
                   EDUCATION
                 </template>
-                <div v-for="(education) in profiles[0].education" class="cards-list" v-bind:key="education.title">
+                <div v-for="(education) in currentProfile.education" class="cards-list" v-bind:key="education.title">
                   <div class="cardLanguage">
                     <div class="card_image"></div>
                     <div class="card_title title-white">
@@ -142,15 +142,21 @@
                   </svg>
                   EXPERIENCE
                 </template>
-                <div v-for="(experience) in profiles[0].experience" class="cards-list" v-bind:key="experience.title">
-                  <div class="cardLanguage">
-                    <div class="card_image"></div>
-                    <div class="card_title title-white">
-                      <small class="text-white font-weight-bold">{{ experience.title }}</small>
-                      <p class="text-white font-weight-bold">Experience developed in {{experience.companyName}}</p>
-                      <p class="text-white font-weight-bold">Starting on the {{experience.dateStart}} and finishing on the {{experience.dateEnd}}</p>
+                <div v-if="thereIsExperience">
+                  <div v-for="(experience) in currentProfile.experience" class="cards-list" v-bind:key="experience.title">
+                    <div class="cardLanguage">
+                      <div class="card_image"></div>
+                      <div class="card_title title-white">
+                        <small class="text-white font-weight-bold">{{ experience.title }}</small>
+                        <p class="text-white font-weight-bold">Experience developed in {{experience.companyName}}</p>
+                        <p class="text-white font-weight-bold">Starting on the {{experience.dateStart}} and finishing on the {{experience.dateEnd}}</p>
+                      </div>
                     </div>
                   </div>
+                </div>
+                <div v-else class="image-container">
+                  <img width="150" height="150" alt="noExperience" src="/img/theme/404_cat.jpg/">
+                  <h5 class="text-center noExperienceText">There is no experience yet, let's get some!</h5>
                 </div>
               </tab-pane>
             </card>
@@ -168,7 +174,6 @@ import Parallax from "@/views/components/Parallax";
 export default {
   name: 'profile',
   bodyClass: 'profile-page',
-
   components: {
     Tabs,
     TabPane,
@@ -177,6 +182,8 @@ export default {
   data () {
     return {
       noms: "holi",
+      token: 0,
+      thereIsExperience: true,
       profiles: [
         {
           id: 0,
@@ -268,6 +275,7 @@ export default {
           username: "blanchetFleur",
           password: "1234",
           image: 'img/theme/team-3-800x800.jpg',
+          aboutMe: "The Illustrator and Graphic Designer is responsible for the creative execution of marketing materials, including illustrations, graphics, photography, and animations. This includes creating original artwork and designs to visually represent a company’s brand.",
           job:"Machine Learning",
           cv: "34553",
           profile_type: "Searching",
@@ -347,6 +355,7 @@ export default {
           username: "carmenLP",
           password: "1234",
           image: 'img/theme/team-4-800x800.jpg',
+          aboutMe: "The Illustrator and Graphic Designer is responsible for the creative execution of marketing materials, including illustrations, graphics, photography, and animations. This includes creating original artwork and designs to visually represent a company’s brand.",
           job:"Front End Developer",
           cv: "3r332",
           profile_type: "Other",
@@ -381,15 +390,7 @@ export default {
               certificateID: false
             }
           ],
-          experience:[
-            {
-              title: "NO EXPERIENCE",
-              description: "",
-              dateStart: "",
-              dateEnd: "",
-              companyName: ""
-            }
-          ],
+          experience: 'NO EXPERIENCE',
           certificates:[
             {
               certificateID: "C2-1",
@@ -422,7 +423,19 @@ export default {
             },
           ]
         }
-      ]
+      ],
+      currentProfile: [],
+    }
+  },
+  beforeMount() {
+    if (localStorage.getItem('token')) {
+      try {
+        this.token = parseInt(JSON.parse(localStorage.getItem('token')));
+        this.currentProfile = this.profiles[this.token]
+        this.thereIsExperience = this.currentProfile.experience !== 'NO EXPERIENCE';
+      } catch(error) {
+        this.token = 0;
+      }
     }
   },
   methods: {
