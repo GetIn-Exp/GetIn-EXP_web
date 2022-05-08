@@ -6,7 +6,7 @@
         <div class="container">
           <!-- Get-in-EXP LOGO -->
 
-          <a href="#" class="navbar-brand"> GETIN-EXP </a>
+          <a href="#/landing" class="navbar-brand"> GETIN-EXP </a>
 
           <button
             type="button"
@@ -43,7 +43,7 @@
               </div>
             </div>
 
-            <a href="#" class="navbar-brand"> Offerts </a>
+            <a href="#/home" class="navbar-brand"> Offerts </a>
 
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
@@ -75,10 +75,10 @@
                 </a>
               </li>
 
-              <li class="nav-item"><a href="#" class="nav-link">PROFILE</a></li>
+              <li class="nav-item"><a href="#/profile" class="nav-link">PROFILE</a></li>
               <li class="nav-item dropdown">
                 <a
-                  href="#"
+                  href="#/login"
                   id="nav-inner-primary_dropdown_1"
                   role="button"
                   data-toggle="dropdown"
@@ -111,10 +111,9 @@
           <!-- First Column: search parameters and filters -->
           <div class="col-lg-4 mt-5 mt-lg-0">
               <div>
-                <h4 class="font-weight-bold">
-                  Search Offerts
-                </h4>
-                <hr class="mt-0 mb-2" style="border: 1px solid black" />
+                <h1 class="h1-large text-center">
+                  Buscar Ofertas
+                </h1>
               </div>
 
               <div class="card shadow mb-3">
@@ -257,11 +256,56 @@
                 </button>
 
               </div>
+
+              <div class="row justify-content-center"> 
+                  <img class="p-2" src='img/theme/logo.jpg' alt="NoImage"/>
+              </div>
           </div>
 
           <!--_Second Column: offerts list -->
           <div class="col-lg-8">
-            <div v-if="searchIsValid" class="home-results">
+
+            <!-- ANYTHING SEARCHED SO FAR -->
+            <div v-if="!searchPerformed" id="home-empty">
+              <div class="flex-column text-container text-center">
+                <h2>Get the best offerts now!</h2>
+                <p class="font-weight-bold"> 
+                  In Getin-Exp we know how difficult is to get your first job without experience. 
+                  We've been there too! That's the reason we've created the perfect job finder for you. 
+                  Let the search engine do your work for you! 
+                </p>
+                <div style ="height: 300px">
+                  <img class="my-img-container" src="img/theme/experience.jpg" alt="wtf meme" />
+                </div>
+              </div>
+            </div>
+
+            <!-- INVALID USER INPUT -->
+            <div v-else-if="searchPerformed & !searchIsValid" id="home-invalid-search">
+              <div class="flex-column text-container text-center">
+                <h2>HEY! Invalid Search Input</h2>
+                <p class="font-weight-bold"> Please, fill up all the requested inputs before searching </p>
+                <div style ="height: 300px">
+                  <img class="my-img-container" src="img/theme/wtf.jpg" alt="wtf meme" />
+                </div>
+              </div>
+            </div>
+
+            <!-- NO RESULTS -->
+            <div v-else-if="searchPerformed & searchIsValid & !hasResults" id="home-not-results">
+              <div class="flex-column text-container text-center">
+                <h2>OPS! No results found</h2>
+                <p class="font-weight-bold"> You can try either changing the job title or the location. </p>
+                <div style="height: 300px;">
+                  <img class="my-img-container" src="img/theme/ops.jpg" alt="ops meme" />
+                </div>
+                
+              </div>
+              
+            </div>
+
+            <!-- DISPLAY OFFERTS -->
+            <div v-else id="home-results">
               <div class="mb-3 ml-4 mr-4">
                 <h4>
                   Ofertas relacionadas con
@@ -288,8 +332,12 @@
                 </li>
               </ul>
             </div>
-          </div>
 
+            
+
+            
+
+          </div>
         </div>
       </div>
     </body>
@@ -337,6 +385,7 @@ export default {
       advanced: false,
       searchPerformed: false,
       searchIsValid: false,
+      hasResults: false,
       resultsWhat: "",
       resultsWhere: "",
       listaResultados: [],
@@ -390,10 +439,14 @@ export default {
             item["location"].toUpperCase().includes(this.where.toUpperCase())
           );
         });
+        this.hasResults = this.listaResultados.length > 0;
       }
 
-      // If the search is invalid, return to the simple search
-      else this.advanced = false;
+      // If the search is invalid,
+      else{
+        this.advanced = false;
+        this.hasResults = false;
+      }
     },
   },
 
@@ -460,6 +513,10 @@ export default {
 
 #home-form-advanced-btn{
   width: 100%;
+}
+
+.my-img-container{
+  max-height: 100%;
 }
 
 .section {
