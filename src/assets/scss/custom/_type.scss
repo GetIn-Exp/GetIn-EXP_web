@@ -49,6 +49,14 @@ p {
 	text-shadow: $heading-shadow-light;
 }
 
+.title-login {
+	letter-spacing: $heading-title-letter-spacing;
+	font-size: $heading-title-font-size;
+	font-weight: $heading-title-font-weight;
+	color: $secondary;
+	text-transform: $heading-title-text-transform;
+}
+
 .heading-section {
 	letter-spacing: $heading-section-letter-spacing;
 	font-size: $heading-section-font-size;
@@ -104,4 +112,32 @@ article {
 	h5 + figure {
 		margin-top: 0;
 	}
+}
+
+// Login
+.circle-1 {
+	width:200px;
+	height:200px;
+	border-radius: 50%;
+	position: relative;
+	margin: 0 0 2%;
+}
+
+.circle-1 img {
+	width:200px;
+	height:200px;
+	border-radius: 50%;
+	border:5px solid $primary;
+	overflow: hidden;
+	cursor:pointer;
+	transition: all 0.2s linear;
+	-webkit-transition: all 0.2s linear;
+}
+.circle-1:hover img {
+	transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	box-shadow: 2px 2px 2px #4b4b4b;
+	border:0px solid $primary;
+
 }
