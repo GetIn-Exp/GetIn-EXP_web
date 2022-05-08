@@ -2,7 +2,7 @@
   <div>
     <header>
       <!-- Home Navigation Menu (Header) -->
-      <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-default">
         <div class="container">
           <!-- Get-in-EXP LOGO -->
 
@@ -112,9 +112,10 @@
             <card
               id="home-card-search"
               shadow
+              type="primary"
               header-classes="bg-pb-5"
               body-classes="px-lg-1 py-lg-1"
-              class="border-0 myred roundered mb-5"
+              class="border-0 roundered mb-5"
             >
               <div class="card-body pb-0">
                 <div id="home-form-search" class="form-group">
@@ -125,6 +126,7 @@
                       aria-describedby="addon-right addon-left"
                       placeholder="QUÉ"
                       class="form-control"
+                      v-model="what"
                     />
                     <div class="input-group-append">
                       <span class="input-group-text"
@@ -140,6 +142,7 @@
                       aria-describedby="addon-right addon-left"
                       placeholder="DÓNDE"
                       class="form-control"
+                      v-model="where"
                     />
                     <div class="input-group-append">
                       <span class="input-group-text"
@@ -148,20 +151,21 @@
                     </div>
                     <!---->
                   </div>
-                </div>
 
-                <div id="home-form-filter" class="form-group">
-                  <button
-                    id="home-form-btn"
-                    type="button"
-                    class="btn btn-icon btn-style"
+                  <button id="home-form-btn"
+                    class="btn btn-icon btn-default btn-style" @click="search"
                   >
                     <!----><!----><!---->
                     <span class="btn-inner--icon"
                       ><i class="ni ni-settings-gear-65"></i
                     ></span>
-                    Advanced filters
+                    SHOW RESULTS
                   </button>
+                </div>
+
+                <div id="home-form-filter" class="form-group">
+                  
+                    
 
                   <div
                     id="home-form-datepicker"
@@ -196,37 +200,33 @@
           <!--_Second Column: offerts list -->
           <div class="col-lg-8">
 
-            <div class="mb-3 ml-4 mr-4">
-              <h4> Resultados de <span class="font-weight-bold text-uppercase"> oferta </span></h4>
-              <small class="text-uppercase font-weight-bold">
-              25 resultados en Location
-              </small>
-              <hr class="mt-0" style="border: 1px solid black">
-            </div>
-              
-            <div class="row justify-content-center mb-3 ml-4 mr-4"></div>
-              <ul id="offerts-panel">
+            <div v-if="results" class="home-results">
+              <div class="mb-3 ml-4 mr-4">
+                <h4> Resultados de 
+                  <span class="font-weight-bold text-uppercase"> 
+                    {{ resultsWhat }}
+                  </span>
+                </h4>
+                <small class="text-uppercase font-weight-bold">
+                25 resultados en {{ resultsWhere }}
+                </small>
+                <hr class="mt-0" style="border: 1px solid black">
+              </div>
                 
-                <offert-card>
-                  <template #title>
-                    First Offert
-                  </template>
-                  <template #description>
-                    First Offert
-                  </template>
-                  <template #date>
-                    07 - 05 - 2022 
-                  </template>
-                </offert-card>
-
-                <offert-card/>
-                <offert-card/>
-                <offert-card/>
-                <offert-card/>
-                <offert-card/>
-
-
-              </ul>
+              <div class="row justify-content-center mb-3 ml-4 mr-4"></div>
+                <ul id="offerts-panel">
+                  <li v-for="item in listaResultados" :key="item.id"> 
+                    <offert-card>
+                        <template #title> {{ item.title }} </template>
+                        <template #description> {{ item.description }} </template>
+                        <template #company> {{ item.company }} </template>
+                        <template #location> {{ item.location }} </template>
+                        <template #money> {{ item.money }} </template>
+                    </offert-card>
+                  </li>
+                </ul>
+              </div>  
+               
             </div>
           </div>
       </div>
@@ -271,8 +271,60 @@ export default {
       dates: {
         simple: "2018-07-17",
       },
-    };
-  },
+      what: "",
+      where: "",
+      results: false,
+      resultsWhat:"",
+      resultsWhere: "",
+      listaResultados: [],
+      listaOfertas: [
+            {
+                id: 1,
+                title: "Responsable de Logística",
+                description: "First Offert Mockup",
+                company: "AXA Aseguradora",
+                location: "Area Metropolitana de Barcelona",
+                money: "10000$",
+            },
+            {
+                id: 2,
+                title: "Responsable de Logística",
+                description: "Second Offert Mockup",
+                company: "AXA Aseguradora",
+                location: "Area Metropolitana de Barcelona",
+                money: "10000$",
+            },
+            {
+                id: 3,
+                title: "Responsable de Logística",
+                description: "Third Offert Mockup",
+                company: "AXA Aseguradora",
+                location: "Area Metropolitana de Barcelona",
+                money: "10000$",
+            },
+            {
+                id: 4,
+                title: "Responsable de Logística",
+                description: "Forth Offert Mockup",
+                company: "AXA Aseguradora",
+                location: "Area Metropolitana de Barcelona",
+                money: "10000$",
+            },
+            ]
+      };
+    },
+
+    methods: {
+      search(event) {
+            this.results = true;
+            this.resultsWhat = this.what;
+            this.resultsWhere = this.where;
+            this.listaResultados = this.listaOfertas.filter(
+                (item) => { return item['title'].toUpperCase().includes(this.what.toUpperCase()) }
+            )
+        },
+    },
+  
 };
 </script>
 
@@ -282,9 +334,6 @@ export default {
   border-radius: 1.5rem;
 }
 
-.myred {
-  background-color: #f5365c !important;
-}
 
 .btn-style {
   width: 100%;
@@ -322,6 +371,26 @@ export default {
 #offerts-panel > li{
   margin-bottom: 1rem;
 }
+
+.section {
+    padding: 70px 0;
+    background-color: transparent !important;
+    margin-top: 1%;
+
+    div.button-container{
+        text-align: center;
+        margin-top: -106px;
+    }
+
+    h4.title {
+        margin-top: -106px;
+    }
+}
+
+.checkout_card {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
 
 /* Not used */
 .form-btn-container {

@@ -1,31 +1,51 @@
 <template>
     <component 
-        class="tab-content"
+        class="container"
         :is="tag"
         >
-        <div class="card my-card">
-            <!---->
-            <div class="card-body">
-                <div class="tab-pane fade active show">
-                    <div class="ml-1">
-                        <h5 class="tab-pane-title font-weight-bold text-uppercase">
+        <div class="card border my-card">
+            <div class="row">
+                <div class="col-4 img-container-container"> 
+                    <img class="p-2" src='img/theme/axa-logo-rrss.png' alt="NoImage"/>
+                </div>
+
+                <div class="col-8">
+                    <div class="row">
+                        <div class="col">
+                        <div class="card-title mt-3 mb-0">
+                            <h5 class="tab-pane-title font-weight-bold text-uppercase">
                             <slot name="title">
                                 Responsable de Logística
                             </slot>
-                        </h5>
-                        <small class="tab-pane-company text-uppercase font-weight-bold"> 
+                            </h5>
+                        </div>
+                        <div class="card-company mb--5">
+                            <small class="font-weight-bold "> 
                             <slot name="company">
                                 Dalt Tech SL
                             </slot>
-                        </small>
-                        <small class="tab-pane-location text-uppercase font-weight-bold"> 
+                            </small>
+                        </div>
+                        <div class="card-location">
+                            <small class="font-weight-bold "> 
                             <slot name="location">
                                 Área Metropolitana de Barcelona, 08392
                             </slot>
-                        </small>
-                    </div>
+                            </small>
+                        </div>
+                        </div>
+
+                        <div class="col">
+                        <p class="card-money text-right m-3">
+                            <slot name="money">
+                                20.000$ - 30.000$
+                            </slot>
+                        </p>
+                        </div>
                     
-                    <p class="tab-pane-description">
+                    </div>
+
+                    <div class="card-body ml-0 pl-0 text-justify">
                         <slot name="description">
                             Raw denim you probably haven't heard of them jean shorts
                             Austin. Nesciunt tofu stumptown aliqua, retro synth
@@ -33,19 +53,9 @@
                             carles vegan helvetica. Reprehenderit butcher retro
                             keffiyeh dreamcatcher synth.
                         </slot>
-                    </p>
-
-                    <div class="tab-pane-minifooter mt-1">
-                        <small class="tab-pane-date text-uppercase font-weight-bold"> 
-                            Active since 
-                            <slot name="date"> 
-                                07 - 05 - 2022 
-                            </slot>
-                        </small>
                     </div>
                 </div>
             </div>
-            <!----><!---->
         </div>
     </component>
 </template>
@@ -61,9 +71,11 @@ export default {
   },
 };
 </script>
+
 <style scoped>
-.my-card{
-    border: 1px solid black;
+.my-card:hover{
+    background-color: #F1FDFE;
+    box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.2);
 }
 
 </style>
