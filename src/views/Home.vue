@@ -107,6 +107,7 @@
     <body>
       <div class="container pt-lg-md">
         <div class="row justify-content-center">
+
           <!-- First Column: search parameters and filters -->
           <div class="col-lg-4 mt-5 mt-lg-0">
               <div>
@@ -218,11 +219,10 @@
                         <base-input
                           name="calendar"
                           class="mb-0 pb-0"
-                          inputText="Before Date"
                         >
                           <template v-slot:addonLeft>
                             <i class="ni ni-calendar-grid-58 mr-2"></i>
-                            <span class="input-text">DATE BEFORE:</span>
+                            <span class="input-text">AFTER</span>
                           </template>
 
                           <flat-picker
@@ -238,12 +238,11 @@
                       </div>
 
                       <div id="home-form-dropdown" class="input-group">
-                          <text-dropdown />
-                        </div>
+                        <text-dropdown />
+                      </div>
                     </div>
 
                   </div>
-                  
                 </div>
 
                 <button id="home-form-btn"
@@ -290,6 +289,7 @@
               </ul>
             </div>
           </div>
+
         </div>
       </div>
     </body>
