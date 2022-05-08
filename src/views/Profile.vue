@@ -143,6 +143,28 @@
         </div>
       </div>
     </div>
+    <div class="section">
+      <div class="container">
+        <div class="card border checkout_card">
+          <div class="row">
+            <div class="col">
+              <br/>
+              <img src='' alt="NoImage"/>
+              <br/>
+            </div>
+            <div class="col">
+              <div class="card-body">
+                body
+                </div>
+            </div>
+            <div class="col">
+              <h1>12€</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br/>
+    </div>
   </div>
 </template>
 <script>
@@ -160,4 +182,10 @@ export default {
   }
 };
 </script>
-<style></style>
+<style>
+
+.checkout_card {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+</style>
