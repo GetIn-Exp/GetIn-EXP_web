@@ -20,7 +20,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/GetIn-Exp/GetIn-EXP_web">
-    <img width="233" alt="image" src="https://user-images.githubusercontent.com/57969201/164993650-bb569e3e-8e2d-47d9-a6ba-eb76a4552d05.png">
+    <img width="233" alt="image" src="https://user-images.githubusercontent.com/57969201/167307717-135330b4-ec4f-4d4e-8cfd-fbc84d4791c0.png">
   </a>
 
   <p align="center">
