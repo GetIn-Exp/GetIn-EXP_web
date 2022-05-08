@@ -157,55 +157,77 @@
                   >
                     <div id="home-form-search" v-if="!advanced" class="input-group">
                       <!---->
-                      <div id="home-form-search-what" class="input-group mb-2 border-2"
-                      >
-                        <!----><!---->
-                        <input
-                          aria-describedby="addon-right addon-left"
-                          placeholder="QUÉ"
-                          class="form-control"
-                          v-model="what"
-                          :class="[
-                            { 'border-primary': whatIsValid },
-                            { 'border-danger': whatIsInvalid },
-                          ]"
-                        />
-                        <div class="input-group-append">
-                          <span
-                            class="input-group-text"
-                            :class="[
-                              { 'text-primary border-primary': whatIsValid },
-                              { 'text-danger border-danger': whatIsInvalid },
-                            ]"
-                          >
-                            <i class="ni ni-zoom-split-in"></i
-                          ></span>
-                        </div>
+                      <div id="home-form-search-what" class="input-group mb-2 border-2">
+
+                        <base-dropdown tag="div" style="width:100% !important" menuClasses="my-dropdown">
+                            <template v-slot:title>
+                              <div class="input-group">
+                                <input
+                                  aria-describedby="addon-right addon-left"
+                                  placeholder="QUÉ"
+                                  class="form-control dropdown-input border-right-0"
+                                  v-model="what"
+                                  :class="[
+                                    { 'border-primary': whatIsValid },
+                                    { 'border-danger': whatIsInvalid },
+                                  ]"
+                                />
+                                <div class="input-group-append">
+                                  <span
+                                    class="input-group-text border-left-0"
+                                    :class="[
+                                      { 'text-primary border-primary': whatIsValid },
+                                      { 'text-danger border-danger': whatIsInvalid },
+                                    ]"
+                                    ><i class="ni ni-zoom-split-in"></i
+                                  ></span>
+                              </div>
+                                
+                                </div>
+                            </template>
+                            <li class="dropdown-content" v-for="(item, index) in uniqueTitlesFiltered" 
+                                :key="index" @click="selectWhat"> 
+                                {{ item }}
+                            </li>
+                        </base-dropdown>
+                        
                         <!---->
                       </div>
 
                       <div id="home-form-search-where" class="input-group">
+                        <base-dropdown tag="div" style="width:100% !important" menuClasses="my-dropdown">
+                            <template v-slot:title>
+                              <div class="input-group">
+                                <input
+                                  aria-describedby="addon-right addon-left"
+                                  placeholder="DÓNDE"
+                                  class="form-control dropdown-input border-right-0"
+                                  v-model="where"
+                                  :class="[
+                                    { 'border-primary': whereIsValid },
+                                    { 'border-danger': whereIsInvalid },
+                                  ]"
+                                />
+                                <div class="input-group-append">
+                                  <span
+                                    class="input-group-text border-left-0"
+                                    :class="[
+                                      { 'text-primary border-primary': whereIsValid },
+                                      { 'text-danger border-danger': whereIsInvalid },
+                                    ]"
+                                    ><i class="ni ni-pin-3"></i
+                                  ></span>
+                              </div>
+                                
+                                </div>
+                            </template>
+                            <li class="dropdown-content" v-for="(item, index) in uniqueLocationsFiltered" 
+                                :key="index" @click="selectWhere"> 
+                                {{ item }}
+                            </li>
+                        </base-dropdown>
                         <!----><!---->
-                        <input
-                          aria-describedby="addon-right addon-left"
-                          placeholder="DÓNDE"
-                          class="form-control"
-                          v-model="where"
-                          :class="[
-                            { 'border-primary': whereIsValid },
-                            { 'border-danger': whereIsInvalid },
-                          ]"
-                        />
-                        <div class="input-group-append">
-                          <span
-                            class="input-group-text"
-                            :class="[
-                              { 'text-primary border-primary': whereIsValid },
-                              { 'text-danger border-danger': whereIsInvalid },
-                            ]"
-                            ><i class="ni ni-pin-3"></i
-                          ></span>
-                        </div>
+                      
                         <!---->
                       </div>
 
@@ -314,14 +336,14 @@
                   </span>
                 </h4>
                 <small class="text-uppercase font-weight-bold">
-                  {{ listaResultados.length }} resultados en {{ resultsWhere }}
+                  {{ listaResultadosOfertas.length }} resultados en {{ resultsWhere }}
                 </small>
                 <hr class="mt-0" style="border: 1px solid black" />
               </div>
 
               <div class="row justify-content-center mb-3 ml-4 mr-4"></div>
               <ul id="offerts-panel">
-                <li v-for="item in listaResultados" :key="item.id">
+                <li v-for="item in listaResultadosOfertas" :key="item.id">
                   <offert-card>
                     <template #title> {{ item.title }} </template>
                     <template #description> {{ item.description }} </template>
@@ -346,6 +368,7 @@
 
 <script>
 import flatPicker from "vue-flatpickr-component";
+import BaseDropdown from '../components/BaseDropdown.vue';
 import TextDropdown from "./components/TextDropdown";
 import OffertCard from "./components/OffertCard.vue";
 import TabsSection from "./components/JavascriptComponents/TabsSection";
@@ -369,6 +392,7 @@ export default {
   name: "home",
   components: {
     flatPicker,
+    BaseDropdown,
     TextDropdown,
     TabsSection,
     ProgressSection,
@@ -379,16 +403,19 @@ export default {
     return {
       what: "",
       where: "",
+      category: "",
       dates: {
         simple: "2018-07-17",
       },
+
       advanced: false,
       searchPerformed: false,
       searchIsValid: false,
       hasResults: false,
+      
       resultsWhat: "",
       resultsWhere: "",
-      listaResultados: [],
+      listaResultadosOfertas: [],
       listaOfertas: [
         {
           id: 1,
@@ -423,6 +450,7 @@ export default {
           money: "10000$",
         },
       ],
+      
     };
   },
 
@@ -433,13 +461,9 @@ export default {
       this.resultsWhere = this.where;
       this.searchIsValid = this.whatIsValid & this.whereIsValid;
       if (this.searchIsValid) {
-        this.listaResultados = this.listaOfertas.filter((item) => {
-          return (
-            item["title"].toUpperCase().includes(this.what.toUpperCase()) &
-            item["location"].toUpperCase().includes(this.where.toUpperCase())
-          );
-        });
-        this.hasResults = this.listaResultados.length > 0;
+
+        this.listaResultadosOfertas = this.listaOfertasFiltrada;
+        this.hasResults = this.listaResultadosOfertas.length > 0;
       }
 
       // If the search is invalid,
@@ -447,6 +471,25 @@ export default {
         this.advanced = false;
         this.hasResults = false;
       }
+    },
+
+    selectWhat(event){
+      console.log(event.target.firstChild.data);
+      this.what = event.target.firstChild.data.replace(/(^\s+)|(\s+$)/g, '');
+    },
+
+    selectWhere(event){
+      console.log(event.target.firstChild.data);
+      this.where = event.target.firstChild.data.replace(/(^\s+)|(\s+$)/g, '');
+    },
+
+    selectCategory(event){
+      console.log(event.target.firstChild.data);
+      this.category = event.target.firstChild.data.replace(/(^\s+)|(\s+$)/g, '');
+    },
+
+    onlyUnique(value, index, self) {
+      return self.indexOf(value) === index;
     },
   },
 
@@ -466,7 +509,53 @@ export default {
     whereIsInvalid() {
       return this.searchPerformed & (this.where.length == 0);
     },
+
+    uniqueTitles(){
+      var mylist = [];
+      for (var item of this.listaOfertas){
+        if (!(mylist.includes(item.title))){
+          mylist.push(item.title);
+        }
+      }
+      return mylist
+    },
+
+    uniqueLocations(){
+      var mylist = [];
+      for (var item of this.listaOfertas){
+        if (!(mylist.includes(item.location))){
+          mylist.push(item.location);
+        }
+      }
+      return mylist;
+    },
+
+    uniqueTitlesFiltered(){
+      return this.uniqueTitles.filter(title => 
+        title.toUpperCase().includes( this.what.toUpperCase() )
+      );
+    },
+
+    uniqueLocationsFiltered(){
+      return this.uniqueLocations.filter(location =>
+        location.toUpperCase().includes( this.where.toUpperCase() )
+      );
+    },
+
+    // async offerts list having applyed all the input restrictions
+    listaOfertasFiltrada(){
+      console.log(this.uniqueLocations);
+      return this.listaOfertas.filter((item) => {
+          return (
+            item["title"].toUpperCase().includes(this.what.toUpperCase()) &
+            item["location"].toUpperCase().includes(this.where.toUpperCase())
+            // We can add here the category and the date filter contributions
+          );
+        });
+    },
+
   },
+
 };
 </script>
 
@@ -485,6 +574,26 @@ export default {
   background-color: #fff;
   border: 1px solid #cad1d7;
   border-radius: 0.25rem;
+}
+
+.dropdown-input{
+    padding-right: 0.75rem !important; 
+    border: 1px solid #cad1d7 !important;
+}
+
+.my-dropdown{
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.dropdown-content{
+    padding: 10px;
+}
+
+.dropdown-content:hover{
+    background-color: #cad1d7;
+    border-block: 1px solid #659ac8;
 }
 
 .dropdown-categories {
