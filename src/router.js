@@ -7,6 +7,7 @@ import Landing from "./views/Landing.vue";
 import Login from "./views/Login.vue";
 import Register from "./views/Register.vue";
 import Profile from "./views/Profile.vue";
+import Oferts from "./views/Oferts";
 import StarterHeader from "@/layout/starter/StarterHeader";
 import StarterFooter from "@/layout/starter/StarterFooter";
 
@@ -45,6 +46,15 @@ export default new Router({
       name: "register",
       components: {
         default: Register,
+      }
+    },
+    {
+      path: "/oferts/:id",
+      name: "oferts",
+      components: {
+        header: AppHeader,
+        default: Oferts,
+        footer: AppFooter
       }
     },
     {

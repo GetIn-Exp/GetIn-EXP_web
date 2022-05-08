@@ -4,6 +4,7 @@ p {
 	font-size: $paragraph-font-size;
 	font-weight: $paragraph-font-weight;
 	line-height: $paragraph-line-height;
+	padding-top: 3%;
 }
 
 .lead {
@@ -35,6 +36,17 @@ p {
 	font-size: $heading-title-font-size;
 	font-weight: $heading-title-font-weight;
 	text-transform: $heading-title-text-transform;
+	color: $heading-title-color-dark;
+	text-shadow: $heading-shadow-light;
+}
+
+.heading-subtitle {
+	letter-spacing: $heading-subtitle-letter-spacing;
+	font-size: $heading-subtitle-font-size;
+	font-weight: $heading-subtitle-font-weight;
+	text-transform: $heading-subtitle-text-transform;
+	color: $heading-title-color-dark;
+	text-shadow: $heading-shadow-light;
 }
 
 .title-login {
@@ -50,6 +62,8 @@ p {
 	font-size: $heading-section-font-size;
 	font-weight: $heading-section-font-weight;
 	text-transform: $heading-section-text-transform;
+	color: $heading-title-color-light;
+	text-shadow: $heading-shadow-dark;
 
 	img {
 		display: block;

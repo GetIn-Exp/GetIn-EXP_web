@@ -7849,6 +7849,7 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
+
 sweetalert2@11.x, sweetalert2@^11.4.11:
   version "11.4.11"
   resolved "https://registry.npmjs.org/sweetalert2/-/sweetalert2-11.4.11.tgz"

@@ -62,6 +62,11 @@ export default {
       default: false,
       description: "Whether button style is outline"
     },
+    roundOutline: {
+      type: Boolean,
+      default: false,
+      description: "Whether button style is outline and rounded"
+    },
     rounded: {
       type: Boolean,
       default: false,
