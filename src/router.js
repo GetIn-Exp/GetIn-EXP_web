@@ -35,18 +35,14 @@ export default new Router({
       path: "/login",
       name: "login",
       components: {
-        header: AppHeader,
         default: Login,
-        footer: AppFooter
       }
     },
     {
       path: "/register",
       name: "register",
       components: {
-        header: AppHeader,
         default: Register,
-        footer: AppFooter
       }
     },
     {
