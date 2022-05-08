@@ -343,7 +343,9 @@ export default {
       this.$router.replace({ path: '/register' })
     },
     goToHomePage() {
-      this.$router.replace({ path: '/home', query: { username: this.username, logged: this.logged, token: this.token } })
+      localStorage.logged = this.logged;
+      localStorage.token = this.token;
+      this.$router.replace({ path: '/profile', query: { username: this.username, logged: this.logged, token: this.token } })
     },
     showPassword () {
       this.pswHidden = !this.pswHidden
@@ -400,6 +402,11 @@ export default {
       }
     }
   },
+  mounted() {
+    this.logged = localStorage.logged;
+    this.token = localStorage.token
+
+  }
 };
 </script>
 

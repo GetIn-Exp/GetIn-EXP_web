@@ -8,20 +8,16 @@
           <img class="img-startHeader" src="img/logos/logo_AppHeader.png" alt="startHeaderLogo">
         </router-link>
 
-        <ul class="navbar-nav ml-5">
+        <ul v-if="logged" class="navbar-nav ml-5">
           <li class="nav-item"><router-link to="/home" class="nav-link">JOB OFFERTS</router-link></li>
           <li class="nav-item"><router-link to="/profile" class="nav-link">PROFILE</router-link></li>
+          <li class="nav-item"><router-link to="/landing" class="nav-link" @click="logOut()">LOG OUT</router-link></li>
+        </ul>
+        <ul v-else class="navbar-nav ml-5">
+          <li class="nav-item"><router-link to="/home" class="nav-link">JOB OFFERTS</router-link></li>
           <li class="nav-item"><router-link to="/login" class="nav-link">SIGN IN</router-link></li>
           <li class="nav-item"><router-link to="/register" class="nav-link">SIGN UP</router-link></li>
         </ul>
-        <!-- TODO PARA EL REFACTOR
-        <ul class="navbar-nav ml-5">
-          <li class="nav-item"><router-link to="/home" class="nav-link">JOB OFFERTS</router-link></li>
-          <li class="nav-item"><router-link class="nav-link">LOG OUT</router-link></li>
-          <li class="nav-item"><router-link to="/profile" class="nav-link">PROFILE</router-link></li>
-        </ul>
-        -->
-
       </div>
     </nav>
   </header>
@@ -36,6 +32,29 @@ export default {
     BaseNav,
     CloseButton,
     BaseDropdown
+  },
+  data () {
+    return {
+      logged: false,
+      token: 0,
+    }
+  },
+  beforeMount() {
+    if (localStorage.getItem('logged')) {
+      try {
+        this.logged = (localStorage.logged === 'true');
+        this.token = parseInt(JSON.parse(localStorage.getItem('token')));
+      } catch(error) {
+        this.logged = false;
+        this.token = 0;
+      }
+    }
+  },
+  methods: {
+    logOut () {
+      localStorage.logged = false;
+      localStorage.token = 0;
+    }
   }
 };
 </script>

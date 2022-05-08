@@ -73,7 +73,7 @@
                 <div class="mb-3">
                   <small class="text-uppercase"><b>Interests:</b></small>
                 </div>
-                <div v-for="(interest) in profiles[0].interests" class="container" v-bind:key="interest">
+                <div v-for="(interest) in profiles[0].interests" class="container" v-bind:key="interest.name">
                     <base-button class="btn-1 buttonInterests mt-1" outline rounded >{{ interest.name }}</base-button>
                 </div>
               </tab-pane>
@@ -85,7 +85,7 @@
                   </svg>
                   LANGUAGES
                 </template>
-                <div v-for="(language) in profiles[0].languages" class="cards-list" v-bind:key="language">
+                <div v-for="(language) in profiles[0].languages" class="cards-list" v-bind:key="language.name">
                   <div class="cardLanguage">
                     <div class="card_image"></div>
                     <div class="card_title title-white">
@@ -105,7 +105,7 @@
                   </svg>
                   CERFICATES
                 </template>
-                <div v-for="(certificate) in profiles[0].certificates" class="cards-list" v-bind:key="certificate">
+                <div v-for="(certificate) in profiles[0].certificates" class="cards-list" v-bind:key="certificate.title">
                   <div class="cardLanguage">
                     <div class="card_image"></div>
                     <div class="card_title title-white">
@@ -123,7 +123,7 @@
                   </svg>
                   EDUCATION
                 </template>
-                <div v-for="(education) in profiles[0].education" class="cards-list" v-bind:key="education">
+                <div v-for="(education) in profiles[0].education" class="cards-list" v-bind:key="education.title">
                   <div class="cardLanguage">
                     <div class="card_image"></div>
                     <div class="card_title title-white">
@@ -142,7 +142,7 @@
                   </svg>
                   EXPERIENCE
                 </template>
-                <div v-for="(experience) in profiles[0].experience" class="cards-list" v-bind:key="experience">
+                <div v-for="(experience) in profiles[0].experience" class="cards-list" v-bind:key="experience.title">
                   <div class="cardLanguage">
                     <div class="card_image"></div>
                     <div class="card_title title-white">
