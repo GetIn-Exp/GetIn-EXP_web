@@ -8,7 +8,7 @@
       </parallax>
       <div class="container">
         <div class="row">
-          <div class="col-form-label">
+          <div class="col">
             <div class="row-grid">
               <h1 class="heading-title">Título de la oferta</h1>
             </div>
@@ -17,7 +17,7 @@
               <h2 class="heading-subtitle">Nombre de la empresa</h2>
             </div>
             <br>
-            <div class="row-grid bg-gradient-ofert rounded border">
+            <div class="bg-gradient-ofert rounded border">
               <h2 class="heading-section pl-30 pt-30">Summary:</h2>
               <h3 class="heading-section pl-50 pt-10" id="creationDate">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-calendar-check" viewBox="0 0 16 16">
@@ -56,8 +56,7 @@
               <base-button class="btn-lg w-100" rounded >APPLY FOR THIS OFERT</base-button>
             </div>
           </div>
-          <div class="col-form-label pl-15-percent"/>
-          <div class="col-form-label">
+          <div class="col-3">
             <img class="photo-container" src="img/theme/on_progress.png" alt="" />
             <div class="mb-3 mt-5">
               <small class="text-uppercase">TAGS</small>
