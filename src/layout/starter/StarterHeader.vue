@@ -10,7 +10,6 @@
 
         <ul class="navbar-nav ml-5">
           <li class="nav-item"><router-link to="/home" class="nav-link">JOB OFFERTS</router-link></li>
-          <li class="nav-item"><router-link to="/profile" class="nav-link">PROFILE</router-link></li>
           <li class="nav-item"><router-link to="/login" class="nav-link">SIGN IN</router-link></li>
           <li class="nav-item"><router-link to="/register" class="nav-link">SIGN UP</router-link></li>
         </ul>
