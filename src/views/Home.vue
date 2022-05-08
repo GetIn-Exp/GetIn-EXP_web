@@ -108,129 +108,190 @@
       <div class="container pt-lg-md">
         <div class="row justify-content-center">
           <!-- First Column: search parameters and filters -->
-          <div class="col-lg-4">
-            <card
-              id="home-card-search"
-              shadow
-              type="primary"
-              header-classes="bg-pb-5"
-              body-classes="px-lg-1 py-lg-1"
-              class="border-0 roundered mb-5"
-            >
-              <div class="card-body pb-0">
-                <div id="home-form-search" class="form-group">
-                  <!---->
-                  <div id="home-form-search-what" class="input-group mb-2">
-                    <!----><!---->
-                    <input
-                      aria-describedby="addon-right addon-left"
-                      placeholder="QUÉ"
-                      class="form-control"
-                      v-model="what"
-                    />
-                    <div class="input-group-append">
-                      <span class="input-group-text"
-                        ><i class="ni ni-zoom-split-in"></i
-                      ></span>
-                    </div>
-                    <!---->
-                  </div>
+          <div class="col-lg-4 mt-5 mt-lg-0">
+              <div>
+                <h4 class="font-weight-bold">
+                  Search Offerts
+                </h4>
+                <hr class="mt-0 mb-2" style="border: 1px solid black" />
+              </div>
 
-                  <div id="home-form-search-where" class="input-group mb-2">
-                    <!----><!---->
-                    <input
-                      aria-describedby="addon-right addon-left"
-                      placeholder="DÓNDE"
-                      class="form-control"
-                      v-model="where"
-                    />
-                    <div class="input-group-append">
-                      <span class="input-group-text"
-                        ><i class="ni ni-pin-3"></i
-                      ></span>
-                    </div>
-                    <!---->
-                  </div>
+              <div class="card shadow mb-3">
 
-                  <button id="home-form-btn"
-                    class="btn btn-icon btn-default btn-style" @click="search"
+                <div class="container pl-0 pr-0">
+                  <div class="row">
+                    <div class="col pr-0 nav-pills nav-fill nav-item">
+                      <a
+                        data-toggle="tab"
+                        role="tab"
+                        aria-selected="true"
+                        style="cursor: pointer"
+                        class="p-2 rounded-0 border-bottom shadow-none nav-item nav-link"
+                        :class="{'active': !advanced }"
+                        @click="advanced = false"
+                        ><div>DEFAULT OPTIONS</div>
+                      </a>
+                    </div>
+                    <div class="col pl-0 nav-pills nav-fill nav-item">
+                      <a
+                        data-toggle="tab"
+                        role="tab"
+                        aria-selected="true"
+                        style="cursor: pointer"
+                        class="p-2 rounded-0 border-bottom shadow-none nav-item nav-link"
+                        :class="{'active': advanced }"
+                        @click="advanced = true"
+                        ><div>ADVANCED OPTIONS</div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <!---->
+                
+
+                <div class="card-body">
+                  <div
+                    class="tab-pane fade active show"
+                    style="height: 100px;"
+                    aria-expanded="true"
+                  >
+                    <div id="home-form-search" v-if="!advanced" class="input-group">
+                      <!---->
+                      <div id="home-form-search-what" class="input-group mb-2 border-2"
+                      >
+                        <!----><!---->
+                        <input
+                          aria-describedby="addon-right addon-left"
+                          placeholder="QUÉ"
+                          class="form-control"
+                          v-model="what"
+                          :class="[
+                            { 'border-primary': whatIsValid },
+                            { 'border-danger': whatIsInvalid },
+                          ]"
+                        />
+                        <div class="input-group-append">
+                          <span
+                            class="input-group-text"
+                            :class="[
+                              { 'text-primary border-primary': whatIsValid },
+                              { 'text-danger border-danger': whatIsInvalid },
+                            ]"
+                          >
+                            <i class="ni ni-zoom-split-in"></i
+                          ></span>
+                        </div>
+                        <!---->
+                      </div>
+
+                      <div id="home-form-search-where" class="input-group">
+                        <!----><!---->
+                        <input
+                          aria-describedby="addon-right addon-left"
+                          placeholder="DÓNDE"
+                          class="form-control"
+                          v-model="where"
+                          :class="[
+                            { 'border-primary': whereIsValid },
+                            { 'border-danger': whereIsInvalid },
+                          ]"
+                        />
+                        <div class="input-group-append">
+                          <span
+                            class="input-group-text"
+                            :class="[
+                              { 'text-primary border-primary': whereIsValid },
+                              { 'text-danger border-danger': whereIsInvalid },
+                            ]"
+                            ><i class="ni ni-pin-3"></i
+                          ></span>
+                        </div>
+                        <!---->
+                      </div>
+
+                    </div>
+
+                    <div id="home-form-filter" v-else class="input-group">
+                      
+                      <div id="home-form-datepicker" class="input-group mb-2 input-daterange datepicker"
+                      >
+                        <base-input
+                          name="calendar"
+                          class="mb-0 pb-0"
+                          inputText="Before Date"
+                        >
+                          <template v-slot:addonLeft>
+                            <i class="ni ni-calendar-grid-58 mr-2"></i>
+                            <span class="input-text">DATE BEFORE:</span>
+                          </template>
+
+                          <flat-picker
+                            slot-scope="{ focus, blur }"
+                            @on-open="focus"
+                            @on-close="blur"
+                            :config="{ allowInput: true }"
+                            class="form-control datepicker"
+                            v-model="dates.simple"
+                          >
+                          </flat-picker>
+                        </base-input>
+                      </div>
+
+                      <div id="home-form-dropdown" class="input-group">
+                          <text-dropdown />
+                        </div>
+                    </div>
+
+                  </div>
+                  
+                </div>
+
+                <button id="home-form-btn"
+                    class="btn btn-icon btn-default btn-style"
+                    @click="search"
                   >
                     <!----><!----><!---->
                     <span class="btn-inner--icon"
-                      ><i class="ni ni-settings-gear-65"></i
+                      ><i class="ni ni-atom"></i
                     ></span>
-                    SHOW RESULTS
-                  </button>
-                </div>
+                    SEARCH RESULTS
+                </button>
 
-                <div id="home-form-filter" class="form-group">
-                  
-                    
-
-                  <div
-                    id="home-form-datepicker"
-                    class="input-group input-daterange datepicker"
-                  >
-                    <base-input
-                      name="calendar"
-                      addon-left-icon="ni ni-calendar-grid-58"
-                      label="Antes de"
-                      labelClasses="input-group-text label-style text-uppercase"
-                    >
-                      <flat-picker
-                        slot-scope="{ focus, blur }"
-                        @on-open="focus"
-                        @on-close="blur"
-                        :config="{ allowInput: true }"
-                        class="form-control datepicker"
-                        v-model="dates.simple"
-                      >
-                      </flat-picker>
-                    </base-input>
-
-                    <div id="home-form-dropdown" class="input-group">
-                      <text-dropdown />
-                    </div>
-                  </div>
-                </div>
               </div>
-            </card>
           </div>
 
           <!--_Second Column: offerts list -->
           <div class="col-lg-8">
-
-            <div v-if="results" class="home-results">
+            <div v-if="searchIsValid" class="home-results">
               <div class="mb-3 ml-4 mr-4">
-                <h4> Resultados de 
-                  <span class="font-weight-bold text-uppercase"> 
+                <h4>
+                  Ofertas relacionadas con
+                  <span class="font-weight-bold text-uppercase">
                     {{ resultsWhat }}
                   </span>
                 </h4>
                 <small class="text-uppercase font-weight-bold">
-                25 resultados en {{ resultsWhere }}
+                  {{ listaResultados.length }} resultados en {{ resultsWhere }}
                 </small>
-                <hr class="mt-0" style="border: 1px solid black">
+                <hr class="mt-0" style="border: 1px solid black" />
               </div>
-                
+
               <div class="row justify-content-center mb-3 ml-4 mr-4"></div>
-                <ul id="offerts-panel">
-                  <li v-for="item in listaResultados" :key="item.id"> 
-                    <offert-card>
-                        <template #title> {{ item.title }} </template>
-                        <template #description> {{ item.description }} </template>
-                        <template #company> {{ item.company }} </template>
-                        <template #location> {{ item.location }} </template>
-                        <template #money> {{ item.money }} </template>
-                    </offert-card>
-                  </li>
-                </ul>
-              </div>  
-               
+              <ul id="offerts-panel">
+                <li v-for="item in listaResultados" :key="item.id">
+                  <offert-card>
+                    <template #title> {{ item.title }} </template>
+                    <template #description> {{ item.description }} </template>
+                    <template #company> {{ item.company }} </template>
+                    <template #location> {{ item.location }} </template>
+                    <template #money> {{ item.money }} </template>
+                  </offert-card>
+                </li>
+              </ul>
             </div>
           </div>
+        </div>
       </div>
-
     </body>
   </div>
 </template>
@@ -268,63 +329,91 @@ export default {
 
   data() {
     return {
+      what: "",
+      where: "",
       dates: {
         simple: "2018-07-17",
       },
-      what: "",
-      where: "",
-      results: false,
-      resultsWhat:"",
+      advanced: false,
+      searchPerformed: false,
+      searchIsValid: false,
+      resultsWhat: "",
       resultsWhere: "",
       listaResultados: [],
       listaOfertas: [
-            {
-                id: 1,
-                title: "Responsable de Logística",
-                description: "First Offert Mockup",
-                company: "AXA Aseguradora",
-                location: "Area Metropolitana de Barcelona",
-                money: "10000$",
-            },
-            {
-                id: 2,
-                title: "Responsable de Logística",
-                description: "Second Offert Mockup",
-                company: "AXA Aseguradora",
-                location: "Area Metropolitana de Barcelona",
-                money: "10000$",
-            },
-            {
-                id: 3,
-                title: "Responsable de Logística",
-                description: "Third Offert Mockup",
-                company: "AXA Aseguradora",
-                location: "Area Metropolitana de Barcelona",
-                money: "10000$",
-            },
-            {
-                id: 4,
-                title: "Responsable de Logística",
-                description: "Forth Offert Mockup",
-                company: "AXA Aseguradora",
-                location: "Area Metropolitana de Barcelona",
-                money: "10000$",
-            },
-            ]
-      };
+        {
+          id: 1,
+          title: "Responsable de Logística",
+          description: "First Offert Mockup",
+          company: "AXA Aseguradora",
+          location: "Area Metropolitana de Barcelona",
+          money: "10000$",
+        },
+        {
+          id: 2,
+          title: "Responsable de Logística",
+          description: "Second Offert Mockup",
+          company: "AXA Aseguradora",
+          location: "Area Metropolitana de Barcelona",
+          money: "10000$",
+        },
+        {
+          id: 3,
+          title: "Responsable de Logística",
+          description: "Third Offert Mockup",
+          company: "AXA Aseguradora",
+          location: "Area Metropolitana de Barcelona",
+          money: "10000$",
+        },
+        {
+          id: 4,
+          title: "Responsable de Logística",
+          description: "Forth Offert Mockup",
+          company: "AXA Aseguradora",
+          location: "Area Metropolitana de Barcelona",
+          money: "10000$",
+        },
+      ],
+    };
+  },
+
+  methods: {
+    search(event) {
+      this.searchPerformed = true;
+      this.resultsWhat = this.what;
+      this.resultsWhere = this.where;
+      this.searchIsValid = this.whatIsValid & this.whereIsValid;
+      if (this.searchIsValid) {
+        this.listaResultados = this.listaOfertas.filter((item) => {
+          return (
+            item["title"].toUpperCase().includes(this.what.toUpperCase()) &
+            item["location"].toUpperCase().includes(this.where.toUpperCase())
+          );
+        });
+      }
+
+      // If the search is invalid, return to the simple search
+      else this.advanced = false;
+    },
+  },
+
+  computed: {
+    whatIsValid() {
+      return this.searchPerformed & (this.what.length > 0);
     },
 
-    methods: {
-      search(event) {
-            this.results = true;
-            this.resultsWhat = this.what;
-            this.resultsWhere = this.where;
-            this.listaResultados = this.listaOfertas.filter(
-                (item) => { return item['title'].toUpperCase().includes(this.what.toUpperCase()) }
-            )
-        },
+    whatIsInvalid() {
+      return this.searchPerformed & (this.what.length == 0);
     },
-  
+
+    whereIsValid() {
+      return this.searchPerformed & (this.where.length > 0);
+    },
+
+    whereIsInvalid() {
+      return this.searchPerformed & (this.where.length == 0);
+    },
+  },
 };
 </script>
 
@@ -334,13 +423,6 @@ export default {
   border-radius: 1.5rem;
 }
 
-
-.btn-style {
-  width: 100%;
-  border: 2px solid black;
-  color: white;
-  background-color: #f5365c;
-}
 
 .label-style {
   font-size: 0.9rem;
@@ -361,36 +443,46 @@ export default {
   background-clip: padding-box;
 }
 
-#offerts-panel{
+#home-form-btn:hover{
+  transform: none;
+}
+
+#offerts-panel {
   width: 100%;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-#offerts-panel > li{
+#offerts-panel > li {
   margin-bottom: 1rem;
 }
 
+#home-form-advanced-btn{
+  width: 100%;
+}
+
 .section {
-    padding: 70px 0;
-    background-color: transparent !important;
-    margin-top: 1%;
+  padding: 70px 0;
+  background-color: transparent !important;
+  margin-top: 1%;
 
-    div.button-container{
-        text-align: center;
-        margin-top: -106px;
-    }
+  div.button-container {
+    text-align: center;
+    margin-top: -106px;
+  }
 
-    h4.title {
-        margin-top: -106px;
-    }
+  h4.title {
+    margin-top: -106px;
+  }
 }
 
 .checkout_card {
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
+.my-input-is-valid . {
+}
 
 /* Not used */
 .form-btn-container {

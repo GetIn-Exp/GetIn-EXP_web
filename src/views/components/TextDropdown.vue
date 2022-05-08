@@ -4,7 +4,7 @@
         <base-dropdown tag="div" style="width:100% !important" menuClasses="my-dropdown">
             <template v-slot:title>
                 <input
-                    class="form-control"
+                    class="form-control my-input"
                     aria-describedby="addon-right addon-left"
                     type="text"
                     v-model="buscar"
@@ -74,6 +74,11 @@ export default {
 </script>
 
 <style>
+
+.my-input{
+    padding-right: 0.75rem !important; 
+    border: 1px solid #cad1d7 !important;
+}
 .my-dropdown{
     width: 100% !important;
     margin: 0 !important;
