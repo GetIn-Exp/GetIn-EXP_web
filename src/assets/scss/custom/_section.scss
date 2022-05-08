@@ -35,13 +35,14 @@
     .stars-and-coded{
         margin-top: 8rem;
     }
-    
+
     .shape {
         position: absolute;
         top: 0;
         z-index: -1;
         width: 100%;
         height: 100%;
+        background-image: radial-gradient(circle, #2f4858, #2b6577, #22848f, #28a39e, #4bc2a4);
 
         span {
             position: absolute;
