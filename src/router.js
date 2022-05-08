@@ -7,6 +7,8 @@ import Landing from "./views/Landing.vue";
 import Login from "./views/Login.vue";
 import Register from "./views/Register.vue";
 import Profile from "./views/Profile.vue";
+import StarterHeader from "@/layout/starter/StarterHeader";
+import StarterFooter from "@/layout/starter/StarterFooter";
 
 Vue.use(Router);
 
@@ -26,9 +28,9 @@ export default new Router({
       path: "/landing",
       name: "landing",
       components: {
-        header: AppHeader,
+        header: StarterHeader,
         default: Landing,
-        footer: AppFooter
+        footer: StarterFooter
       }
     },
     {
