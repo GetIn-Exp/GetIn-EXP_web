@@ -11,7 +11,7 @@
         </div>
         <div class="col-lg-6 col-xl-7">
           <div class="image-container">
-            <img class="img-fluid" src="assets/images/header-image.png" alt="alternative" />
+            <img class="" src="assets/images/header-image.png" alt="alternative" />
           </div>
         </div>
       </div>

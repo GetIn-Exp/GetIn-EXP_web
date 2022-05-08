@@ -35,7 +35,7 @@
     .stars-and-coded{
         margin-top: 8rem;
     }
-    
+
     .shape {
         position: absolute;
         top: 0;
@@ -564,4 +564,13 @@
  top:0;
  bottom:0;
  pointer-events:none
+}
+
+
+// Headers
+
+.img-startHeader {
+    width: 180px;
+    height: 60px;
+    cursor: pointer;
 }

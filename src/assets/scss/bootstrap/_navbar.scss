@@ -261,7 +261,7 @@
       color: $navbar-dark-color;
 
       @include hover-focus {
-        color: $navbar-dark-hover-color;
+        color: $primary;
       }
 
       &.disabled {

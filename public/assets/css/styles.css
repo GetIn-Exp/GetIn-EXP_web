@@ -5,7 +5,7 @@ html {
 }
 
 body, p {
-	color: #5e6576; 
+	color: #5e6576;
 	font: 400 1rem/1.625rem "Open Sans", sans-serif;
 }
 
@@ -357,12 +357,17 @@ a:hover {
 	margin-bottom: 0.5rem;
 }
 
-.navbar .nav-item .nav-link {
+
+.navbar .navbar-nav .nav-item .nav-link {
 	padding-top: 0.625rem;
 	padding-bottom: 0.625rem;
 	color: #5e6576;
 	text-decoration: none;
 	transition: all 0.2s ease;
+}
+
+.navbar .navbar-nav .nav-item .nav-link:hover {
+	color: #4bc2a4 !important;
 }
 
 .navbar .nav-item.dropdown.show .nav-link,
@@ -836,7 +841,7 @@ a:hover {
 	left: -60px;
 }
 
-.footer div[class*="col"] {  
+.footer div[class*="col"] {
 	/* selects all elements which have classes starting with col */
 	/* needed so that the absolute positioned decoration stays behind */
 	position: relative;
@@ -900,18 +905,18 @@ a:hover {
 /*     Back To Top Button     */
 /******************************/
 #myBtn {
-	position: fixed; 
-  	z-index: 99; 
-	bottom: 20px; 
-	right: 20px; 
-	display: none; 
+	position: fixed;
+  	z-index: 99;
+	bottom: 20px;
+	right: 20px;
+	display: none;
 	width: 52px;
 	height: 52px;
-	border: none; 
-	border-radius: 50%; 
-	outline: none; 
-	background-color: #44434a; 
-	cursor: pointer; 
+	border: none;
+	border-radius: 50%;
+	outline: none;
+	background-color: #44434a;
+	cursor: pointer;
 }
 
 #myBtn:hover {
@@ -980,7 +985,7 @@ a:hover {
 
 /*************************/
 /*     Media Queries     */
-/*************************/	
+/*************************/
 /* Min-width 768px */
 @media (min-width: 768px) {
 
@@ -1018,7 +1023,7 @@ a:hover {
 
 /* Min-width 992px */
 @media (min-width: 992px) {
-	
+
 	/* General Styles */
 	.h2-heading {
 		width: 35.25rem;
@@ -1071,7 +1076,7 @@ a:hover {
 		margin-top: 0;
 		margin-bottom: 0;
 	}
-	
+
 	.navbar .nav-item .nav-link {
 		padding-right: 0.75rem;
 		padding-left: 0.75rem;
@@ -1112,7 +1117,7 @@ a:hover {
 		margin-right: 0;
 		margin-left: 0;
 	}
-	
+
 	.header .btn-solid-lg {
 		margin-right: 0.5rem;
 	}
@@ -1125,7 +1130,7 @@ a:hover {
 		width: 286px;
 		vertical-align: top;
 	}
-	
+
 	.cards-1 .card:nth-of-type(3n+2) {
 		margin-right: 2rem;
 		margin-left: 2rem;
@@ -1142,8 +1147,8 @@ a:hover {
 		margin-top: 2rem;
 	}
 	/* end of details 1 */
-	
-	
+
+
 	/* Details 2 */
 	.basic-2 .text-container {
 		margin-top: 3rem;
@@ -1158,7 +1163,7 @@ a:hover {
 		width: 298px;
 		vertical-align: top;
 	}
-	
+
 	.cards-2 .card:nth-of-type(3n+2) {
 		margin-right: 1rem;
 		margin-left: 1rem;
@@ -1229,13 +1234,13 @@ a:hover {
 
 /* Min-width 1200px */
 @media (min-width: 1200px) {
-	
+
 	/* General Styles */
 	.container {
 		max-width: 1140px;
 	}
 	/* end of general styles */
-	
+
 
 	/* Header */
 	.header {
@@ -1251,7 +1256,7 @@ a:hover {
 	.header .image-container {
 		position: relative;
 	}
-	
+
 	.header .image-container img {
 		position: absolute;
 		bottom: -520px;
@@ -1265,7 +1270,7 @@ a:hover {
 	.cards-1 .card {
 		width: 310px;
 	}
-	
+
 	.cards-1 .card:nth-of-type(3n+2) {
 		margin-right: 5.5rem;
 		margin-left: 5.5rem;
@@ -1308,7 +1313,7 @@ a:hover {
 	.cards-2 .card {
 		width: 356px;
 	}
-	
+
 	.cards-2 .card:nth-of-type(3n+2) {
 		margin-right: 1.125rem;
 		margin-left: 1.125rem;
@@ -1329,7 +1334,7 @@ a:hover {
 		margin-top: 1.5rem;
 		margin-right: 2.75rem;
 	}
-	
+
 	.form-1 form {
 		margin-left: 2.75rem;
 	}
