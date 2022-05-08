@@ -13,23 +13,18 @@
                 <div class="col-lg-3 order-lg-2">
                   <div class="card-profile-image">
                     <a href="#">
-                      <img  v-lazy="'img/theme/team-4-800x800.jpg'" class="rounded-profile-photo photo-container" shadow>
+                      <img  v-bind:src="profiles[0].image" class="rounded-profile-photo photo-container" shadow>
                     </a>
                   </div>
                 </div>
               </div>
             </div>
           </card>
-        <h3 class="profile-title retroshadow">Grace Hollow</h3>
-        <p class="category">Graphic Designer for Video Games</p>
+        <h3 class="profile-title retroshadow">{{ this.profiles[0].name}} {{this.profiles[0].surnames}}</h3>
+        <p class="category">{{ this.profiles[0].job }}</p>
         <div class="content">
           <h3 class="title">About me</h3>
-          <h5 class="description">
-            An artist of considerable range, Grace — the name taken by
-            Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and
-            records all of his own music, giving it a warm, intimate feel with a
-            solid groove structure. An artist of considerable range.
-          </h5>
+          <h5 class="description"> {{this.profiles[0].aboutMe}}</h5>
         </div>
       </div>
     </div>
@@ -41,7 +36,6 @@
               rel="tooltip"
               title="Follow me on Twitter"
           >
-
             <i class="fa fa-refresh" aria-hidden="true"></i>
             Modificar perfil
           </a>
@@ -71,15 +65,16 @@
                   </svg>
                   PROFILE SUMMARY
                 </template>
-
-                <p class="description">Raw denim you probably haven't heard of them jean shorts
-                  Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache
-                  cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro
-                  keffiyeh dreamcatcher synth.</p>
-                <p class="description">Raw denim you probably haven't heard of them jean shorts
-                  Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse.</p>
+                <div class="mb-3">
+                  <small class="text-uppercase"><b>Profile Type: </b>{{profiles[0].profile_type}}</small>
+                </div>
+                <div class="mb-3">
+                  <small class="text-uppercase"><b>Interests:</b></small>
+                </div>
+                <div v-for="(interest) in profiles[0].interests" class="container" v-bind:key="interest">
+                    <base-button class="btn-1 buttonInterests mt-1" outline rounded >{{ interest.name }}</base-button>
+                </div>
               </tab-pane>
-
               <tab-pane key="tab2">
                 <template slot="title">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-translate" viewBox="0 0 16 16">
@@ -88,13 +83,18 @@
                   </svg>
                   LANGUAGES
                 </template>
-
-                <i class="fa fa-check-square" aria-hidden="true"></i> Requirement 1 <br>
-                <i class="fa fa-check-square" aria-hidden="true"></i> Requirement 2 <br>
-                <i class="fa fa-check-square" aria-hidden="true"></i> Requirement 3 <br>
-                <i class="fa fa-check-square" aria-hidden="true"></i> Requirement 4 <br>
+                <div v-for="(language) in profiles[0].languages" class="cards-list" v-bind:key="language">
+                  <div class="cardLanguage">
+                    <div class="card_image"></div>
+                    <div class="card_title title-white">
+                      <small class="text-white font-weight-bold">{{ language.name }}</small>
+                      <p class="text-white font-weight-bold"> {{language.level}} Level</p>
+                      <p v-if="language.certificateID" class="text-white font-weight-bold"> There is a certificate!</p>
+                      <p v-else class="text-white font-weight-bold"> There is not a certificate.</p>
+                    </div>
+                  </div>
+                </div>
               </tab-pane>
-
               <tab-pane key="tab3">
                 <template slot="title">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-award" viewBox="0 0 16 16">
@@ -103,28 +103,36 @@
                   </svg>
                   CERFICATES
                 </template>
-
-                <p class="description">Raw denim you probably haven't heard of them jean shorts
-                  Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache
-                  cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro
-                  keffiyeh dreamcatcher synth.</p>
+                <div v-for="(certificate) in profiles[0].certificates" class="cards-list" v-bind:key="certificate">
+                  <div class="cardLanguage">
+                    <div class="card_image"></div>
+                    <div class="card_title title-white">
+                      <small class="text-white font-weight-bold">{{ certificate.title }}</small>
+                      <p class="text-white font-weight-bold">Certificate issued by {{certificate.expeditionCompany}}</p>
+                      <p class="text-white font-weight-bold">on the date of {{certificate.expeditionDate}}</p>
+                    </div>
+                  </div>
+                </div>
               </tab-pane>
-
-              <tab-pane key="tab3">
+              <tab-pane key="tab4">
                 <template slot="title">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bank" viewBox="0 0 16 16">
                     <path d="M8 .95 14.61 4h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.379l.5 2A.5.5 0 0 1 15.5 17H.5a.5.5 0 0 1-.485-.621l.5-2A.5.5 0 0 1 1 14V7H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 4h.89L8 .95zM3.776 4h8.447L8 2.05 3.776 4zM2 7v7h1V7H2zm2 0v7h2.5V7H4zm3.5 0v7h1V7h-1zm2 0v7H12V7H9.5zM13 7v7h1V7h-1zm2-1V5H1v1h14zm-.39 9H1.39l-.25 1h13.72l-.25-1z"/>
                   </svg>
                   EDUCATION
                 </template>
-
-                <p class="description">Raw denim you probably haven't heard of them jean shorts
-                  Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache
-                  cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro
-                  keffiyeh dreamcatcher synth.</p>
+                <div v-for="(education) in profiles[0].education" class="cards-list" v-bind:key="education">
+                  <div class="cardLanguage">
+                    <div class="card_image"></div>
+                    <div class="card_title title-white">
+                      <small class="text-white font-weight-bold">{{ education.title }} ({{education.educationType}})</small>
+                      <p class="text-white font-weight-bold">Education given in {{education.institutionName}}</p>
+                      <p class="text-white font-weight-bold">Starting on the {{education.dateStart}} and finishing on the {{education.dateEnd}}</p>
+                    </div>
+                  </div>
+                </div>
               </tab-pane>
-
-              <tab-pane key="tab3">
+              <tab-pane key="tab5">
                 <template slot="title">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-briefcase-fill" viewBox="0 0 16 16">
                     <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v1.384l7.614 2.03a1.5 1.5 0 0 0 .772 0L16 5.884V4.5A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z"/>
@@ -132,38 +140,21 @@
                   </svg>
                   EXPERIENCE
                 </template>
-
-                <p class="description">Raw denim you probably haven't heard of them jean shorts
-                  Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache
-                  cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro
-                  keffiyeh dreamcatcher synth.</p>
+                <div v-for="(experience) in profiles[0].experience" class="cards-list" v-bind:key="experience">
+                  <div class="cardLanguage">
+                    <div class="card_image"></div>
+                    <div class="card_title title-white">
+                      <small class="text-white font-weight-bold">{{ experience.title }}</small>
+                      <p class="text-white font-weight-bold">Experience developed in {{experience.companyName}}</p>
+                      <p class="text-white font-weight-bold">Starting on the {{experience.dateStart}} and finishing on the {{experience.dateEnd}}</p>
+                    </div>
+                  </div>
+                </div>
               </tab-pane>
             </card>
           </tabs>
         </div>
       </div>
-    </div>
-    <div class="section">
-      <div class="container">
-        <div class="card border checkout_card">
-          <div class="row">
-            <div class="col">
-              <br/>
-              <img src='' alt="NoImage"/>
-              <br/>
-            </div>
-            <div class="col">
-              <div class="card-body">
-                body
-                </div>
-            </div>
-            <div class="col">
-              <h1>12€</h1>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br/>
     </div>
   </div>
 </template>
@@ -175,17 +166,268 @@ import Parallax from "@/views/components/Parallax";
 export default {
   name: 'profile',
   bodyClass: 'profile-page',
+
   components: {
     Tabs,
     TabPane,
     Parallax
+   },
+  data () {
+    return {
+      noms: "holi",
+      profiles: [
+        {
+          id: 0,
+          name: "John",
+          surnames:"Murray McCuffy",
+          username: "johnMurray99",
+          password: "1234",
+          image: 'img/theme/team-1-800x800.jpg',
+          job:"Illustrator and graphic designer",
+          aboutMe: "The Illustrator and Graphic Designer is responsible for the creative execution of marketing materials, including illustrations, graphics, photography, and animations. This includes creating original artwork and designs to visually represent a company’s brand.",
+          cv: "52342432",
+          profile_type: "Working",
+          interests:[
+            {
+              name: "Photoshop"
+            },
+            {
+              name: "3D Graphics"
+            },
+            {
+              name: "Adobe"
+            }
+          ],
+          languages:[
+            {
+              id: 1,
+              name: "English",
+              level: "Native",
+              certificateID: false
+            },
+            {
+              id: 2,
+              name: "Spanish",
+              level: "B2",
+              certificateID: true
+            },
+            {
+              id: 3,
+              name: "French",
+              level: "B1",
+              certificateID: true
+            }
+          ],
+          experience:[
+            {
+              title: "Penguin random House Designer Internship",
+              description: "Penguin Random House offers paid internship opportunities to learn about the world of book publishing! Opportunities are available in our Adult & Children’s divisions in business areas such as contracts, editorial, finance, graphic design, managing editorial, marketing, online marketing, production, publicity, sales, subsidiary rights, and operations.",
+              dateStart: "01/02/21",
+              dateEnd: "31/08/21",
+              companyName: "Penguin Random House"
+            }
+          ],
+          certificates:[
+            {
+              certificateID: "C0-1",
+              title: "Diplomas de Español Como Lengua Extranjera B2",
+              expeditionDate: "19/09/19",
+              expeditionCompany: "Universidad de Salamanca"
+            },
+            {
+              certificateID: "C0-2",
+              title: "Diplôme d’Etudes en Langue Française B1",
+              expeditionDate: "17/03/20",
+              expeditionCompany: "Intitut Français"
+            }
+          ],
+          education: [
+            {
+              title: "London Middle School",
+              educationType: "Middle School",
+              dateStart: "10/09/12",
+              dateEnd: "23/06/16",
+              institutionName: "London Public Middle School"
+            },
+            {
+              title: "Humanistic Bachelor",
+              educationType: "High School",
+              dateStart: "01/09/16",
+              dateEnd: "15/06/18",
+              institutionName: "Queen Elisabeth II High School"
+            }
+          ]
+
+        },
+        {
+          id: 1,
+          name: "Fleur",
+          surnames:"Blanchet Dupont",
+          username: "blanchetFleur",
+          password: "1234",
+          image: 'img/theme/team-3-800x800.jpg',
+          job:"Machine Learning",
+          cv: "34553",
+          profile_type: "Searching",
+          interests:[
+            {
+              name: "Writing"
+            },
+            {
+              name: "Python"
+            }
+          ],
+          languages:[
+            {
+              id: 1,
+              name: "English",
+              level: "C1",
+              certificateID: true
+            },
+            {
+              id: 2,
+              name: "German",
+              level: "B2",
+              certificateID: true
+            }
+          ],
+          experience:[
+            {
+              title: "Internship in Computer Vision",
+              description: "With the aim of promoting science and innovation and to encourage research in highly talented young students, the Computer Vision Center hosts the Computer Vision Center Internship Program (prize). It is addressed to students, ideally during the last year of their undergraduate studies. The CVC offers these students a research environment that will constitute their first exposure to a research challenge.",
+              dateStart: "10/04/21",
+              dateEnd: "10/04/22",
+              companyName: "CVFC"
+            }
+          ],
+          certificates:[
+            {
+              certificateID: "C1-1",
+              title: "CAE C1",
+              expeditionDate: "23/09/19",
+              expeditionCompany: "Cambridge English Certifications"
+            },
+            {
+              certificateID: "C1-2",
+              title: "GOETHE-ZERTIFIKAT B2",
+              expeditionDate: "17/11/20",
+              expeditionCompany: "Goethe Institut"
+            }
+          ],
+          education: [
+            {
+              title: "Collège",
+              educationType: "Middle School",
+              dateStart: "10/09/12",
+              dateEnd: "23/06/16",
+              institutionName: "Institut de Paris"
+            },
+            {
+              title: "Lycée",
+              educationType: "High School",
+              dateStart: "01/09/16",
+              dateEnd: "15/06/18",
+              institutionName: "Instituto de Vallecas"
+            },
+            {
+              title: "Ingénierie de traitement de l'information",
+              educationType: "Degree",
+              dateStart: "01/09/18",
+              dateEnd: "Current",
+              institutionName: "L'universitè de Lyon"
+            },
+          ]
+        },
+        {
+          id: 2,
+          name: "Carmen",
+          surnames:"Lozano Pelayo",
+          username: "carmenLP",
+          password: "1234",
+          image: 'img/theme/team-4-800x800.jpg',
+          job:"Front End Developer",
+          cv: "3r332",
+          profile_type: "Other",
+          interests:[
+            {
+              name: "React"
+            },
+            {
+              name: "Web"
+            },
+            {
+              name: "Apps"
+            }
+          ],
+          languages:[
+            {
+              id: 1,
+              name: "English",
+              level: "C1",
+              certificateID: true
+            },
+            {
+              id: 2,
+              name: "Spanish",
+              level: "Native",
+              certificateID: false
+            },
+            {
+              id: 3,
+              name: "Catalan",
+              level: "Native",
+              certificateID: false
+            }
+          ],
+          experience:[
+            {
+              title: "NO EXPERIENCE",
+              description: "",
+              dateStart: "",
+              dateEnd: "",
+              companyName: ""
+            }
+          ],
+          certificates:[
+            {
+              certificateID: "C2-1",
+              title: "CAE C1",
+              expeditionDate: "03/05/21",
+              expeditionCompany: "Cambridge English Certifications"
+            }
+          ],
+          education: [
+            {
+              title: "ESO",
+              educationType: "Middle School",
+              dateStart: "01/09/11",
+              dateEnd: "17/06/15",
+              institutionName: "Instituto de Vallecas"
+            },
+            {
+              title: "Science-technologic Bachelor",
+              educationType: "High School",
+              dateStart: "01/09/15",
+              dateEnd: "23/06/17",
+              institutionName: "Instituto de Vallecas"
+            },
+            {
+              title: "FrontEnd Developer Intensive Course",
+              educationType: "Bootcamp",
+              dateStart: "01/09/17",
+              dateEnd: "02/02/18",
+              institutionName: "IronHack"
+            },
+          ]
+        }
+      ]
+    }
+  },
+  methods: {
+
   }
 };
 </script>
+
 <style>
-
-.checkout_card {
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-}
-
 </style>
