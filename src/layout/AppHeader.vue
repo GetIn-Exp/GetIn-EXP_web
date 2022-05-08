@@ -4,9 +4,9 @@
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-default">
       <div class="container">
         <!-- Get-in-EXP LOGO -->
-        <a href="#" >
+        <router-link to="/landing">
           <img class="img-startHeader" src="img/logos/logo_AppHeader.png" alt="startHeaderLogo">
-        </a>
+        </router-link>
 
         <ul class="navbar-nav ml-5">
           <li class="nav-item"><router-link to="/home" class="nav-link">JOB OFFERTS</router-link></li>
