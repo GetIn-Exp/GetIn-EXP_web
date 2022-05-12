@@ -1,64 +1,74 @@
 <template>
     <component 
-        class="container"
+        class="div"
         :is="tag"
         >
-        <div class="card border my-card">
+        <div class="card border my-card container p-3">
             <div class="row">
-                <div class="col-4 img-container-container"> 
-                    <img class="p-2" src='img/theme/axa-logo-rrss.png' alt="NoImage"/>
+                <div class="col-3 card-img-container"> 
+                    <img src='img/theme/pic-company-logo.png' alt="NoImage"/>
                 </div>
 
-                <div class="col-8">
-                    <div class="row">
-                        <div class="col">
-                        <div class="card-title mt-3 mb-0">
-                            <h5 class="tab-pane-title font-weight-bold text-uppercase">
-                            <slot name="title">
-                                Responsable de Logística
-                            </slot>
-                            </h5>
-                        </div>
-                        <div class="card-company mb--5">
-                            <small class="font-weight-bold "> 
-                            <slot name="company">
-                                Dalt Tech SL
-                            </slot>
-                            </small>
-                        </div>
-                        <div class="card-location">
-                            <small class="font-weight-bold "> 
-                            <slot name="location">
-                                Área Metropolitana de Barcelona, 08392
-                            </slot>
-                            </small>
-                        </div>
+                <div class="col my-card-body">
+                        
+                        <div class="row">
+                            <div class="card-title mb-0">
+                                <h5 class="tab-pane-title font-weight-bold text-uppercase">
+                                <slot name="title">
+                                    Responsable de Logística
+                                </slot>
+                                </h5>
+                            </div>
                         </div>
 
-                        <div class="col">
-                        <p class="card-money text-right m-3">
-                            <slot name="money">
-                                20.000$ - 30.000$
-                            </slot>
-                        </p>
-                        </div>
-                    
-                    </div>
+                        <div class="row">
+                            
+                            <div class="col pl-0">
+                                <div class="card-company font-weight-bold text-primary"> 
+                                    <slot name="company">
+                                        Dalt Tech SL
+                                    </slot>
+                                </div>
+                                    
+                                <div class="card-location font-weight-bold"> 
+                                    <slot name="location">
+                                        Área Metropolitana de Barcelona, 08392
+                                    </slot>
+                                </div>
+                            </div>
 
-                    <div class="card-body ml-0 pl-0 text-justify">
-                        <slot name="description">
-                            Raw denim you probably haven't heard of them jean shorts
-                            Austin. Nesciunt tofu stumptown aliqua, retro synth
-                            master cleanse. Mustache cliche tempor, williamsburg
-                            carles vegan helvetica. Reprehenderit butcher retro
-                            keffiyeh dreamcatcher synth.
-                        </slot>
+                            <div class="col pr-0">
+                                <p class="card-work-time text-right mt-0 mb-0 mr-3">
+                                    <slot name="work-tyme">
+                                        Jornada Completa
+                                    </slot>
+                                </p>
+                                <p class="card-salary text-right mt-0 mb-0 mr-3">
+                                    <slot name="salary">
+                                        20.000$ - 30.000$
+                                    </slot>
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="mt-1 mr-3 pl-0 pr-0 pb-0 text-justify">
+                                <slot style="height: inherited" name="description">
+                                    Raw denim you probably haven't heard of them jean shorts
+                                    Austin. Nesciunt tofu stumptown aliqua, retro synth
+                                    master cleanse. Mustache cliche tempor, williamsburg
+                                    carles vegan helvetica. Reprehenderit butcher retro
+                                    keffiyeh dreamcatcher synth.
+                                </slot>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div> 
     </component>
 </template>
+
 <script>
 export default {
   name: "offert-card",
@@ -77,5 +87,25 @@ export default {
     background-color: #F1FDFE;
     box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.2);
 }
+
+.card-company, .card-location, .card-work-time, .card-salary{
+    font-size: 0.8rem;
+}
+
+.card-img-container > img{
+    max-width: 100%;
+}
+
+@media only screen and (max-width: 768px){
+    .card-img-container {
+        display: none;
+    }
+
+    .my-card-body{
+        margin-inline: 1rem;
+    }
+}
+
+
 
 </style>
