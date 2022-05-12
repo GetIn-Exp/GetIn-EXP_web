@@ -413,7 +413,7 @@
                   <offert-card>
                     <template #title> {{ item.title }} </template>
                     <template #description> 
-                      {{ item.description.substring(0, 200) + "..." }}
+                      {{ item.description.substring(0, 180) + "..." }}
                     </template>
 
                     <template #company> {{ item.company }} </template>
@@ -1197,9 +1197,11 @@ export default {
   methods: {
     search(event) {
       this.searchPerformed = true;
-      this.resultsWhat = this.what;
-      this.resultsWhere = this.where;
-      this.searchIsValid = this.whatIsValid & this.whereIsValid;
+      this.resultsWhat = ("".includes(this.what))? "CUALQUIERA": this.what;
+      this.resultsWhere = ("".includes(this.where))? "ESPAÑA" : this.where;
+      this.searchIsValid = this.whatIsValid & this.whereIsValid & 
+                            this.educationIsValid & this.categoryIsValid;
+
       if (this.searchIsValid) {
 
         this.listaResultadosOfertas = this.listaOfertasFiltrada;
@@ -1239,19 +1241,35 @@ export default {
 
     // Validate Input Functions
     whatIsValid() {
-      return this.searchPerformed & (this.what.length > 0);
+      return this.searchPerformed & (this.uniqueTitlesFiltered.length > 0);
     },
 
     whatIsInvalid() {
-      return this.searchPerformed & (this.what.length == 0);
+      return this.searchPerformed & (this.uniqueTitlesFiltered.length === 0);
     },
 
     whereIsValid() {
-      return this.searchPerformed & (this.where.length > 0);
+      return this.searchPerformed & (this.uniqueLocationsFiltered.length > 0);
     },
 
     whereIsInvalid() {
-      return this.searchPerformed & (this.where.length == 0);
+      return this.searchPerformed & (this.uniqueLocationsFiltered.length === 0);
+    },
+
+    educationIsValid() {
+      return this.searchPerformed & (this.uniqueEducationsFiltered.length > 0);
+    },
+
+    educationIsInvalid() {
+      return this.searchPerformed & (this.uniqueEducationsFiltered.length === 0);
+    },
+
+    categoryIsValid() {
+      return this.searchPerformed & (this.uniqueCategoriesFiltered.length > 0);
+    },
+
+    categoryIsInvalid() {
+      return this.searchPerformed & (this.uniqueCategoriesFiltered.length === 0);
     },
 
     // Computed just at the beginning!
