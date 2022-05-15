@@ -1,12 +1,12 @@
 <template>
   <div id="profile">
-    <div class="page-header clear-filter">
+    <div id="#profile" class="page-header mt-0 clear-filter">
       <parallax
           class="page-header-image"
           style="background-image:url('img/theme/green_blue_bg.jpg')"
       >
       </parallax>
-      <div class="container">
+      <div id="profileContainer" class="container">
           <card class="card-profile border-0">
             <div class="px-4">
               <div class="row justify-content-center">
@@ -31,7 +31,8 @@
     <div class="section">
         <div class="button-container">
           <a
-              href="#button"
+              id="updateProfile"
+              href="#profile"
               class="btn btn-default rounded-circle btn-lg"
               rel="tooltip"
               title="Update Profile"
@@ -41,7 +42,8 @@
             Update profile
           </a>
           <a
-              href="#button"
+              id="cv"
+              href="#profile"
               class="btn btn-default rounded-circle btn-lg"
               rel="tooltip"
               title="CV"
@@ -53,11 +55,12 @@
             CV
           </a>
           <a
-              href="#button"
+              id="appliedoferts"
+              href="#profile"
               class="btn btn-default rounded-circle btn-lg"
               rel="tooltip"
               title="AppliedOferts"
-              @click="gotoAppliedOferts()"
+              @click="goToAppliedOferts()"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-paper-fill" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M6.5 9.5 3 7.5v-6A1.5 1.5 0 0 1 4.5 0h7A1.5 1.5 0 0 1 13 1.5v6l-3.5 2L8 8.75l-1.5.75ZM1.059 3.635 2 3.133v3.753L0 5.713V5.4a2 2 0 0 1 1.059-1.765ZM16 5.713l-2 1.173V3.133l.941.502A2 2 0 0 1 16 5.4v.313Zm0 1.16-5.693 3.337L16 13.372v-6.5Zm-8 3.199 7.941 4.412A2 2 0 0 1 14 16H2a2 2 0 0 1-1.941-1.516L8 10.072Zm-8 3.3 5.693-3.162L0 6.873v6.5Z"/>
@@ -453,7 +456,7 @@ export default {
     inProgress() {
       this.$swal('Warning', 'This feature is still in construction\n Please, try other features.', 'warning')
     },
-    gotoAppliedOferts () {
+    goToAppliedOferts () {
       this.$router.replace({ path: '/appliedOferts' })
     }
   }

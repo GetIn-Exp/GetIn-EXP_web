@@ -13,7 +13,7 @@
               <offert-card>
                 <template #title> {{ listaOfertas[item].title }} </template>
                 <template #description>
-                  {{ listaOfertas[item].description }}
+                  <img class="img-wizard" v-bind:src="getWizard()" alt="WizardImage">
                 </template>
 
                 <template #company> {{ listaOfertas[item].company }} </template>
@@ -754,6 +754,7 @@ export default {
       ],
       currentOferts: [],
       thereAreOferts: false,
+      wizardSrc: '',
     }
   },
   beforeMount () {
@@ -783,13 +784,21 @@ export default {
         this.token = 0;
       }
     }
-    if (this.currentOferts !== []) {
+    if (this.currentOferts.length > 0) {
        this.thereAreOferts = true
+    }
+  },
+  methods: {
+    getWizard () {
+      return 'img/theme/wizard_' + String(Math.floor(Math.random() * 4)) + '.png'
     }
   }
 }
 </script>
 
 <style scoped>
-
+.img-wizard {
+  width: fit-content;
+  height: 70px;
+}
 </style>
