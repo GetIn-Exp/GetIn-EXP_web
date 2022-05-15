@@ -1,19 +1,35 @@
 <template>
   <div class="mt-10">
-    <ul id="offerts-panel">
-      <li v-for="item in currentOferts" :key="item.id">
-        <offert-card>
-          <template #title> {{ listaOfertas[item].title }} </template>
-          <template #description>
-            {{ listaOfertas[item].description }}
-          </template>
+    <div class="container">
+      <div class="row">
+        <h1 class="h1-large">
+          Applied Oferts
+        </h1>
+      </div>
+      <div class="row">
+        <div v-if="thereAreOferts">
+          <ul id="offerts-panel">
+            <li v-for="item in currentOferts" :key="item.id">
+              <offert-card>
+                <template #title> {{ listaOfertas[item].title }} </template>
+                <template #description>
+                  {{ listaOfertas[item].description }}
+                </template>
 
-          <template #company> {{ listaOfertas[item].company }} </template>
-          <template #location> {{ listaOfertas[item].location }} </template>
-          <template #salary> {{ listaOfertas[item].salary }} </template>
-        </offert-card>
-      </li>
-    </ul>
+                <template #company> {{ listaOfertas[item].company }} </template>
+                <template #location> {{ listaOfertas[item].location }} </template>
+                <template #salary> {{ listaOfertas[item].salary }} </template>
+              </offert-card>
+            </li>
+          </ul>
+        </div>
+        <div v-else>
+          <img class="p-2 img-center" src='img/theme/404_noOferts.jpg' alt="NoOfertsApplied"/>
+          <h3 class="text-center">Looks like you haven't applied for any ofert yet.<br>Let's get some started!</h3>
+          <h5 class="text-center">Go to <a href="/home">Home</a></h5>
+        </div>
+      </div>
+    </div>
   </div>
 
 </template>
@@ -737,6 +753,7 @@ export default {
         }
       ],
       currentOferts: [],
+      thereAreOferts: false,
     }
   },
   beforeMount () {
@@ -765,6 +782,9 @@ export default {
         this.currentOferts = [];
         this.token = 0;
       }
+    }
+    if (this.currentOferts !== []) {
+       this.thereAreOferts = true
     }
   }
 }
