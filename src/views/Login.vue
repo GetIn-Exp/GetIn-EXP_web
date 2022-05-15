@@ -343,7 +343,8 @@ export default {
       this.$router.replace({ path: '/register' })
     },
     goToHomePage() {
-      localStorage.token = this.token;
+      localStorage.setItem('token', this.token)
+      localStorage.setItem('appliedOferts', [1,2,3])
       this.$router.replace({ path: '/home', query: { username: this.username, token: this.token } })
     },
     showPassword () {

@@ -10,6 +10,7 @@ import Home from "./views/Home.vue";
 import Oferts from "./views/Oferts";
 import StarterHeader from "@/layout/starter/StarterHeader";
 import StarterFooter from "@/layout/starter/StarterFooter";
+import AppliedOferts from "@/views/AppliedOferts";
 
 Vue.use(Router);
 
@@ -54,6 +55,15 @@ export default new Router({
       components: {
         header: AppHeader,
         default: Oferts,
+        footer: AppFooter
+      }
+    },
+    {
+      path: "/appliedOferts",
+      name: "appliedOferts",
+      components: {
+        header: AppHeader,
+        default: AppliedOferts,
         footer: AppFooter
       }
     },
