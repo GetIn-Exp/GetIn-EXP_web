@@ -9,7 +9,7 @@
       <div class="row">
         <div v-if="thereAreOferts">
           <ul id="offerts-panel">
-            <li v-for="item in currentOferts" :key="item.id">
+            <li v-for="item in currentOferts" :key="item.id" @click="openOffert(item)">
               <offert-card>
                 <template #title> {{ listaOfertas[item].title }} </template>
                 <template #description>
@@ -45,6 +45,7 @@ export default {
   data () {
     return {
       token: 0,
+      username: '',
       listaOfertas: [
         {
           title: "Senior C++ Engineer",
@@ -787,10 +788,18 @@ export default {
     if (this.currentOferts.length > 0) {
        this.thereAreOferts = true
     }
+    if (this.$route.query.username === undefined) {
+      this.username = "noUser"
+    } else {
+      this.username = this.$route.query.username
+    }
   },
   methods: {
     getWizard () {
       return 'img/theme/wizard_' + String(Math.floor(Math.random() * 4)) + '.png'
+    },
+    openOffert(offertID) {
+      this.$router.replace({ path: `/oferts/${offertID}`, query: { username: this.username, token: this.token, offertID: offertID } })
     }
   }
 }
