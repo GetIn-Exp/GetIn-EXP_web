@@ -7,7 +7,6 @@
         <router-link to="/home">
           <img class="img-startHeader" src="img/logos/logo_AppHeader.png" alt="startHeaderLogo">
         </router-link>
-
         <ul v-if="logged" class="navbar-nav ml-5">
           <li class="nav-item"><router-link to="/home" class="nav-link">JOB OFFERTS</router-link></li>
           <li class="nav-item"><router-link to="/profile" class="nav-link">PROFILE</router-link></li>
@@ -52,8 +51,9 @@ export default {
   },
   methods: {
     logOut () {
-      localStorage.logged = false;
-      localStorage.token = 0;
+      localStorage.setItem('logged', false)
+      localStorage.setItem('token', '0')
+      // localStorage.setItem()
     }
   }
 };

@@ -431,7 +431,7 @@ export default {
       try {
         this.token = parseInt(JSON.parse(localStorage.getItem('token')));
         this.currentProfile = this.profiles[this.token]
-        this.thereIsExperience = this.currentProfile.experience !== 'NO EXPERIENCE';
+        this.thereIsExperience = (this.currentProfile.experience !== 'NO EXPERIENCE');
       } catch(error) {
         this.token = 0;
       }

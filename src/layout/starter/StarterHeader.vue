@@ -7,8 +7,12 @@
         <a href="#" >
           <img class="img-startHeader" src="img/logos/logo_Startheader.png" alt="startHeaderLogo">
         </a>
-
-        <ul class="navbar-nav ml-5">
+        <ul v-if="logged" class="navbar-nav ml-5">
+          <li class="nav-item"><router-link to="/home" class="nav-link">JOB OFFERTS</router-link></li>
+          <li class="nav-item"><router-link to="/profile" class="nav-link">PROFILE</router-link></li>
+          <li class="nav-item"><router-link to="/" class="nav-link" @click="logOut()" >LOG OUT</router-link></li>
+        </ul>
+        <ul v-else class="navbar-nav ml-5">
           <li class="nav-item"><router-link to="/home" class="nav-link">JOB OFFERTS</router-link></li>
           <li class="nav-item"><router-link to="/login" class="nav-link">SIGN IN</router-link></li>
           <li class="nav-item"><router-link to="/register" class="nav-link">SIGN UP</router-link></li>
@@ -27,7 +31,31 @@ export default {
     BaseNav,
     CloseButton
   },
+  data () {
+    return {
+      logged: false,
+      token: 0,
+    }
+  },
+  beforeMount() {
+    if (localStorage.getItem('logged')) {
+      try {
 
+        this.logged = (localStorage.getItem('logged') === 'true');
+        this.token = parseInt(JSON.parse(localStorage.getItem('token')));
+      } catch(error) {
+        this.logged = false;
+        this.token = 0;
+      }
+    }
+  },
+  methods: {
+    logOut () {
+      localStorage.setItem('logged', 'false')
+      localStorage.setItem('token', '0')
+      // localStorage.setItem()
+    }
+  }
 };
 </script>
 <style>

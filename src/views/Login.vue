@@ -344,7 +344,8 @@ export default {
     },
     goToHomePage() {
       localStorage.setItem('token', this.token)
-      localStorage.setItem('appliedOferts', [1,2,3])
+      localStorage.setItem('appliedOferts', '')
+      localStorage.setItem('logged', 'true')
       this.$router.replace({ path: '/home', query: { username: this.username, token: this.token } })
     },
     showPassword () {
@@ -403,15 +404,13 @@ export default {
     }
   },
   mounted() {
-    this.logged = localStorage.logged;
-    this.token = localStorage.token
+    this.logged = (localStorage.getItem('logged') === 'true');
+    this.token = parseInt(localStorage.getItem('token'));
 
   }
 };
 </script>
 
 <style>
-.hr-black {
-  border-top: 1px solid black;
-}
+
 </style>
