@@ -4,14 +4,14 @@
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-default">
       <div class="container">
         <!-- Get-in-EXP LOGO -->
-        <router-link to="/landing">
+        <router-link to="/home">
           <img class="img-startHeader" src="img/logos/logo_AppHeader.png" alt="startHeaderLogo">
         </router-link>
 
         <ul v-if="logged" class="navbar-nav ml-5">
           <li class="nav-item"><router-link to="/home" class="nav-link">JOB OFFERTS</router-link></li>
           <li class="nav-item"><router-link to="/profile" class="nav-link">PROFILE</router-link></li>
-          <li class="nav-item"><router-link to="/landing" class="nav-link" @click="logOut()">LOG OUT</router-link></li>
+          <li class="nav-item"><router-link to="/" class="nav-link" @click="logOut()">LOG OUT</router-link></li>
         </ul>
         <ul v-else class="navbar-nav ml-5">
           <li class="nav-item"><router-link to="/home" class="nav-link">JOB OFFERTS</router-link></li>

@@ -1,113 +1,8 @@
 <template>
   <div>
-    <header>
-      <!-- Home Navigation Menu (Header) -->
-      <nav class="navbar navbar-expand-lg navbar-dark bg-default">
-        <div class="container">
-          <!-- Get-in-EXP LOGO -->
-
-          <a href="#/landing" class="navbar-brand"> GETIN-EXP </a>
-
-          <button
-            type="button"
-            data-toggle="collapse"
-            data-target="navbar-danger"
-            aria-controls="navbar-danger"
-            aria-label="Toggle navigation"
-            class="navbar-toggler"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div id="navbar-danger" class="collapse navbar-collapse">
-            <div class="navbar-collapse-header">
-              <div class="row">
-                <div class="col-6 collapse-brand">
-                  <a href="./index.html">
-                    <img src="img/brand/blue.png" />
-                  </a>
-                </div>
-                <div class="col-6 collapse-close">
-                  <button
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#navbar-danger"
-                    aria-controls="navbar-danger"
-                    aria-label="Toggle navigation"
-                    class="navbar-toggler"
-                  >
-                    <span></span>
-                    <span></span>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <a href="#/home" class="navbar-brand"> Offerts </a>
-
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a href="#" class="nav-link nav-link-icon"
-                  ><i class="fa fa-facebook-square"></i
-                  ><span class="nav-link-inner--text d-lg-none"
-                    >Facebook</span
-                  ></a
-                >
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link nav-link-icon">
-                  <i class="fa fa-twitter"></i>
-                  <span class="nav-link-inner--text d-lg-none">Twitter</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link nav-link-icon">
-                  <i class="fa fa-google-plus"></i>
-                  <span class="nav-link-inner--text d-lg-none">Google +</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link nav-link-icon">
-                  <i class="fa fa-instagram"></i>
-                  <span class="nav-link-inner--text d-lg-none">
-                    Instagram
-                  </span>
-                </a>
-              </li>
-
-              <li class="nav-item"><a href="#/profile" class="nav-link">PROFILE</a></li>
-              <li class="nav-item dropdown">
-                <a
-                  href="#/login"
-                  id="nav-inner-primary_dropdown_1"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                  class="nav-link"
-                  >LOG IN</a
-                >
-
-                <div
-                  aria-labelledby="nav-inner-primary_dropdown_1"
-                  class="dropdown-menu dropdown-menu-right"
-                >
-                  <a href="#" class="dropdown-item">Action</a
-                  ><a href="#" class="dropdown-item">Another action</a>
-                  <div class="dropdown-divider"></div>
-                  <a href="#" class="dropdown-item">Something else here</a>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <body>
-      <div class="container pt-lg-md">
+    <br><br>
+    <div class="container pt-lg-md">
         <div class="row justify-content-center">
-
           <!-- First Column: search parameters and filters -->
           <div class="col-lg-4 mt-5 mt-lg-0">
               <div>
@@ -147,7 +42,7 @@
                   </div>
                 </div>
                 <!---->
-                
+
 
                 <div class="card-body">
                   <div
@@ -182,15 +77,15 @@
                                     ><i class="ni ni-zoom-split-in"></i
                                   ></span>
                               </div>
-                                
+
                                 </div>
                             </template>
-                            <li class="dropdown-content" v-for="(item, index) in uniqueTitlesFiltered" 
-                                :key="index" @click="selectWhat"> 
+                            <li class="dropdown-content" v-for="(item, index) in uniqueTitlesFiltered"
+                                :key="index" @click="selectWhat">
                                 {{ item }}
                             </li>
                         </base-dropdown>
-                        
+
                         <!---->
                       </div>
 
@@ -218,23 +113,23 @@
                                     ><i class="ni ni-pin-3"></i
                                   ></span>
                               </div>
-                                
+
                                 </div>
                             </template>
-                            <li class="dropdown-content" v-for="(item, index) in uniqueLocationsFiltered" 
-                                :key="index" @click="selectWhere"> 
+                            <li class="dropdown-content" v-for="(item, index) in uniqueLocationsFiltered"
+                                :key="index" @click="selectWhere">
                                 {{ item }}
                             </li>
                         </base-dropdown>
                         <!----><!---->
-                      
+
                         <!---->
                       </div>
 
                     </div>
 
                     <div id="home-form-filter" v-else class="input-group">
-                      
+
                       <!--
                       <div id="home-form-datepicker" class="input-group mb-2 input-daterange datepicker"
                       >
@@ -284,11 +179,11 @@
                                     ><i class="ni ni-books"></i
                                   ></span>
                               </div>
-                                
+
                                 </div>
                             </template>
-                            <li class="dropdown-content" v-for="(item, index) in uniqueEducationsFiltered" 
-                                :key="index" @click="selectEducation"> 
+                            <li class="dropdown-content" v-for="(item, index) in uniqueEducationsFiltered"
+                                :key="index" @click="selectEducation">
                                 {{ item }}
                             </li>
                         </base-dropdown>
@@ -318,11 +213,11 @@
                                     ><i class="ni ni-briefcase-24"></i
                                   ></span>
                               </div>
-                                
+
                                 </div>
                             </template>
-                            <li class="dropdown-content" v-for="(item, index) in uniqueCategoriesFiltered" 
-                                :key="index" @click="selectCategory"> 
+                            <li class="dropdown-content" v-for="(item, index) in uniqueCategoriesFiltered"
+                                :key="index" @click="selectCategory">
                                 {{ item }}
                             </li>
                         </base-dropdown>
@@ -345,7 +240,7 @@
 
               </div>
 
-              <div class="row justify-content-center"> 
+              <div class="row justify-content-center">
                   <img class="p-2" src='img/theme/logo.jpg' alt="NoImage"/>
               </div>
           </div>
@@ -357,10 +252,10 @@
             <div v-if="!searchPerformed" id="home-empty">
               <div class="flex-column text-container text-center">
                 <h2>Get the best offerts now!</h2>
-                <p class="font-weight-bold"> 
-                  In Getin-Exp we know how difficult is to get your first job without experience. 
-                  We've been there too! That's the reason we've created the perfect job finder for you. 
-                  Let the search engine do your work for you! 
+                <p class="font-weight-bold">
+                  In Getin-Exp we know how difficult is to get your first job without experience.
+                  We've been there too! That's the reason we've created the perfect job finder for you.
+                  Let the search engine do your work for you!
                 </p>
                 <div style ="height: 300px">
                   <img class="my-img-container" src="img/theme/experience.jpg" alt="wtf meme" />
@@ -387,9 +282,9 @@
                 <div style="height: 300px;">
                   <img class="my-img-container" src="img/theme/ops.jpg" alt="ops meme" />
                 </div>
-                
+
               </div>
-              
+
             </div>
 
             <!-- DISPLAY OFFERTS -->
@@ -412,7 +307,7 @@
                 <li v-for="item in listaResultadosOfertas" :key="item.id">
                   <offert-card>
                     <template #title> {{ item.title }} </template>
-                    <template #description> 
+                    <template #description>
                       {{ item.description.substring(0, 180) + "..." }}
                     </template>
 
@@ -426,7 +321,6 @@
           </div>
         </div>
       </div>
-    </body>
   </div>
 </template>
 
@@ -437,20 +331,7 @@ import TextDropdown from "./components/TextDropdown";
 import OffertCard from "./components/OffertCard.vue";
 import TabsSection from "./components/JavascriptComponents/TabsSection";
 import ProgressSection from "./components/JavascriptComponents/ProgressPagination";
-import Hero from "./components/Hero";
-import AppHeader from "../layout/AppHeader";
-import AppFooter from "../layout/AppFooter";
 
-import BasicElements from "./components/BasicElements";
-import Inputs from "./components/Inputs";
-import CustomControls from "./components/CustomControls";
-import Navigation from "./components/Navigation";
-import JavascriptComponents from "./components/JavascriptComponents";
-import Carousel from "./components/Carousel";
-import Icons from "./components/Icons";
-import Examples from "./components/Examples";
-import DownloadSection from "./components/DownloadSection";
-import DatePickers from "./components/JavascriptComponents/DatePickers.vue";
 
 export default {
   name: "home",
@@ -478,7 +359,7 @@ export default {
       searchPerformed: false,
       searchIsValid: false,
       hasResults: false,
-      
+
       resultsWhat: "",
       resultsWhere: "",
       listaResultadosOfertas: [],
@@ -1190,7 +1071,7 @@ export default {
             "category": "Inmobiliario y construcción"
         }
       ],
-      
+
     };
   },
 
@@ -1199,7 +1080,7 @@ export default {
       this.searchPerformed = true;
       this.resultsWhat = ("".includes(this.what))? "CUALQUIERA": this.what;
       this.resultsWhere = ("".includes(this.where))? "ESPAÑA" : this.where;
-      this.searchIsValid = this.whatIsValid & this.whereIsValid & 
+      this.searchIsValid = this.whatIsValid & this.whereIsValid &
                             this.educationIsValid & this.categoryIsValid;
 
       if (this.searchIsValid) {
@@ -1315,7 +1196,7 @@ export default {
 
     //Filtering, computed on the fly
     uniqueTitlesFiltered(){
-      return this.uniqueTitles.filter(title => 
+      return this.uniqueTitles.filter(title =>
         title.toUpperCase().includes( this.what.toUpperCase() )
       ).slice(0,5);
     },
@@ -1344,7 +1225,7 @@ export default {
           return (
             item["title"].toUpperCase().includes(this.what.toUpperCase()) &
             item["location"].toUpperCase().includes(this.where.toUpperCase()) &
-            item["category"].toUpperCase().includes(this.category.toUpperCase()) & 
+            item["category"].toUpperCase().includes(this.category.toUpperCase()) &
             item["education"].toUpperCase().includes(this.education.toUpperCase())
             // We can add here more filters!
           );
@@ -1374,7 +1255,7 @@ export default {
 }
 
 .dropdown-input{
-    padding-right: 0.75rem !important; 
+    padding-right: 0.75rem !important;
     border: 1px solid #cad1d7 !important;
 }
 

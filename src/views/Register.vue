@@ -351,7 +351,7 @@ export default {
   },
   methods: {
     goToLanding () {
-      this.$router.replace({ path: '/landing' })
+      this.$router.replace({ path: '/' })
     },
     goToLogin () {
       this.$router.replace({ path: '/login' })
