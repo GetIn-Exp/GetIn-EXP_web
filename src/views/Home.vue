@@ -304,7 +304,7 @@
 
               <div class="row justify-content-center mb-3 ml-4 mr-4"></div>
               <ul id="offerts-panel">
-                <li v-for="item in listaResultadosOfertas" :key="item.id">
+                <li v-for="item in listaResultadosOfertas" :key="item.id" @click="openOffert(item.id)">
                   <offert-card>
                     <template #title> {{ item.title }} </template>
                     <template #description>
@@ -346,6 +346,8 @@ export default {
 
   data() {
     return {
+      username: '',
+      token: 0,
       what: "",
       where: "",
       category: "",
@@ -365,7 +367,8 @@ export default {
       listaResultadosOfertas: [],
 
       // TODO: json request from url route
-      listaOfertas: [{
+      listaOfertas: [
+          {
             "title": "Senior C++ Engineer",
             "company": "Version 1",
             "description": "Company Description Version 1 is celebrating 25 years in the IT industry this year and we continue to be trusted by global brands to deliver IT solutions that drive customer success. Version 1 is not just a Microsoft Gold Partner, an AWS Premier Consulting Partner and an Oracle Platform Partner; we are also an award-winning employer and our employees are at the heart of Version 1. We invest in a strong culture of wellness through programs that help our employees create their journey toward optimal wellbeing. This framework is based on the ?Strength in Balance? theme and this seen again in our Diversity, Inclusion and Belonging Team motto ?Bring Your Difference?. Job Description In this role you will be working in support of our expanding global customer base and ambitious growth plans. We are looking to strengthen our technical capability within the organisation. To support this projected growth we want to attract talented Senior C++ Engineers who will become key contributors to our engineering teams.",
@@ -376,7 +379,7 @@ export default {
             "agreement": "Contrato indefinido",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2673,
+            "id": 0,
             "education": "Grado",
             "category": "Ingenieros y técnicos"
         },
@@ -391,7 +394,7 @@ export default {
             "agreement": "Contrato indefinido",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2674,
+            "id": 1,
             "education": "Grado",
             "category": "Ingenieros y técnicos"
         },
@@ -406,7 +409,7 @@ export default {
             "agreement": "Contrato indefinido",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2675,
+            "id": 2,
             "education": "Grado",
             "category": "Ingenieros y técnicos"
         },
@@ -421,7 +424,7 @@ export default {
             "agreement": "Contrato indefinido",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2676,
+            "id": 3,
             "education": "Grado",
             "category": "Ingenieros y técnicos"
         },
@@ -436,7 +439,7 @@ export default {
             "agreement": "Contrato formativo",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2677,
+            "id": 4,
             "education": "Grado",
             "category": "Ingenieros y técnicos"
         },
@@ -451,7 +454,7 @@ export default {
             "agreement": "Contrato de duración determinada",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2678,
+            "id": 5,
             "education": "Grado",
             "category": "Ingenieros y técnicos"
         },
@@ -466,7 +469,7 @@ export default {
             "agreement": "Contrato indefinido",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2679,
+            "id": 6,
             "education": "Grado",
             "category": "Ingenieros y técnicos"
         },
@@ -481,7 +484,7 @@ export default {
             "agreement": "Contrato indefinido",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2680,
+            "id": 7,
             "education": "Grado",
             "category": "Ingenieros y técnicos"
         },
@@ -496,7 +499,7 @@ export default {
             "agreement": "Contrato indefinido",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2681,
+            "id": 8,
             "education": "Grado",
             "category": "Ingenieros y técnicos"
         },
@@ -511,7 +514,7 @@ export default {
             "agreement": "Contrato indefinido",
             "work_time": "Jornada completa",
             "salary": "18.000 € - 24.000 € Bruto/año",
-            "id": 2682,
+            "id": 9,
             "education": "Grado",
             "category": "Ingenieros y técnicos"
         },
@@ -526,7 +529,7 @@ export default {
             "agreement": "Contrato indefinido",
             "work_time": "Jornada completa",
             "salary": "24.000 € - 33.000 € Bruto/año",
-            "id": 2683,
+            "id": 10,
             "education": "Grado",
             "category": "Ingenieros y técnicos"
         },
@@ -541,7 +544,7 @@ export default {
             "agreement": "Contrato indefinido",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2684,
+            "id": 11,
             "education": "Grado",
             "category": "Ingenieros y técnicos"
         },
@@ -556,7 +559,7 @@ export default {
             "agreement": "Contrato indefinido",
             "work_time": "Jornada completa",
             "salary": "18.000 € - 24.000 € Bruto/año",
-            "id": 2685,
+            "id": 12,
             "education": "Grado",
             "category": "Ingenieros y técnicos"
         },
@@ -571,7 +574,7 @@ export default {
             "agreement": "Contrato de duración determinada",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2686,
+            "id": 13,
             "education": "Grado",
             "category": "Ingenieros y técnicos"
         },
@@ -586,7 +589,7 @@ export default {
             "agreement": "Contrato indefinido",
             "work_time": "Jornada completa",
             "salary": "27.000 € - 36.000 € Bruto/año",
-            "id": 2687,
+            "id": 14,
             "education": "Grado",
             "category": "Ingenieros y técnicos"
         },
@@ -601,7 +604,7 @@ export default {
             "agreement": "Contrato de duración determinada",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2688,
+            "id": 15,
             "education": "Grado",
             "category": "Ingenieros y técnicos"
         },
@@ -616,7 +619,7 @@ export default {
             "agreement": "Contrato indefinido",
             "work_time": "Jornada completa",
             "salary": "Más de 20.000 €",
-            "id": 2689,
+            "id": 16,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -631,7 +634,7 @@ export default {
             "agreement": "Contrato de duración determinada",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2690,
+            "id": 17,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -646,7 +649,7 @@ export default {
             "agreement": "Contrato indefinido",
             "work_time": "Jornada completa",
             "salary": "40.000 € - 50.000 € Bruto/año",
-            "id": 2691,
+            "id": 18,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -661,7 +664,7 @@ export default {
             "agreement": "Contrato otros contratos",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2692,
+            "id": 19,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -676,7 +679,7 @@ export default {
             "agreement": "Contrato indefinido",
             "work_time": "Jornada completa",
             "salary": "24.000 € - 36.000 € Bruto/año",
-            "id": 2693,
+            "id": 20,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -691,7 +694,7 @@ export default {
             "agreement": "Contrato autónomo",
             "work_time": "Jornada completa",
             "salary": "18.000 € - 24.000 € Bruto/año",
-            "id": 2694,
+            "id": 21,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -706,7 +709,7 @@ export default {
             "agreement": "Contrato indefinido",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2695,
+            "id": 22,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -721,7 +724,7 @@ export default {
             "agreement": "Contrato indefinido",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2696,
+            "id": 23,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -736,7 +739,7 @@ export default {
             "agreement": "Contrato autónomo",
             "work_time": "Jornada indiferente",
             "salary": "18.000 € - 120.000 € Bruto/año",
-            "id": 2697,
+            "id": 24,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -751,7 +754,7 @@ export default {
             "agreement": "Contrato de duración determinada",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2698,
+            "id": 25,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -766,7 +769,7 @@ export default {
             "agreement": "Contrato de duración determinada",
             "work_time": "Jornada completa",
             "salary": "Más de 20.000 €",
-            "id": 2699,
+            "id": 26,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -781,7 +784,7 @@ export default {
             "agreement": "Contrato de duración determinada",
             "work_time": "Jornada completa",
             "salary": "Más de 20.000 €",
-            "id": 2700,
+            "id": 27,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -796,7 +799,7 @@ export default {
             "agreement": "Contrato de duración determinada",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2701,
+            "id": 28,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -811,7 +814,7 @@ export default {
             "agreement": "Contrato de duración determinada",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2702,
+            "id": 29,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -826,7 +829,7 @@ export default {
             "agreement": "Contrato otros contratos",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2703,
+            "id": 30,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -841,7 +844,7 @@ export default {
             "agreement": "Contrato indefinido",
             "work_time": "Jornada completa",
             "salary": "27.000 € - 30.000 € Bruto/año",
-            "id": 2704,
+            "id": 31,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -856,7 +859,7 @@ export default {
             "agreement": "Contrato de duración determinada",
             "work_time": "Jornada completa",
             "salary": "12.000 € - 24.000 € Bruto/año",
-            "id": 2705,
+            "id": 32,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -871,7 +874,7 @@ export default {
             "agreement": "Contrato indefinido",
             "work_time": "Jornada completa",
             "salary": "1800 € - 2100 € Bruto/mes",
-            "id": 2706,
+            "id": 33,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -886,7 +889,7 @@ export default {
             "agreement": "Contrato indefinido",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2707,
+            "id": 34,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -901,7 +904,7 @@ export default {
             "agreement": "Contrato indefinido",
             "work_time": "Jornada completa",
             "salary": "15.000 € - 24.000 € Bruto/año",
-            "id": 2708,
+            "id": 35,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -916,7 +919,7 @@ export default {
             "agreement": "Contrato de duración determinada",
             "work_time": "Jornada completa",
             "salary": "18.000 € - 30.000 € Bruto/año",
-            "id": 2709,
+            "id": 36,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -931,7 +934,7 @@ export default {
             "agreement": "Contrato otros contratos",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2710,
+            "id": 37,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -946,7 +949,7 @@ export default {
             "agreement": "Contrato indefinido",
             "work_time": "Jornada completa",
             "salary": "30.000 € - 36.000 € Bruto/año",
-            "id": 2711,
+            "id": 38,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -961,7 +964,7 @@ export default {
             "agreement": "Contrato indefinido",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2712,
+            "id": 39,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -976,7 +979,7 @@ export default {
             "agreement": "Contrato de duración determinada",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2713,
+            "id": 40,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -991,7 +994,7 @@ export default {
             "agreement": "Contrato otros contratos",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2714,
+            "id": 41,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -1006,7 +1009,7 @@ export default {
             "agreement": "Contrato indefinido",
             "work_time": "Jornada completa",
             "salary": "Más de 10.000 €",
-            "id": 2715,
+            "id": 42,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -1021,7 +1024,7 @@ export default {
             "agreement": "Contrato indefinido",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2716,
+            "id": 43,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -1036,7 +1039,7 @@ export default {
             "agreement": "Contrato indefinido",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2717,
+            "id": 44,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -1051,7 +1054,7 @@ export default {
             "agreement": "Contrato de duración determinada",
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
-            "id": 2718,
+            "id": 45,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         },
@@ -1066,13 +1069,27 @@ export default {
             "agreement": "Contrato indefinido",
             "work_time": "Jornada completa",
             "salary": "18.000 € - 27.000 € Bruto/año",
-            "id": 2719,
+            "id": 46,
             "education": "Grado",
             "category": "Inmobiliario y construcción"
         }
       ],
 
     };
+  },
+  beforeMount() {
+    if (localStorage.getItem('token')) {
+      try {
+        this.token = parseInt(JSON.parse(localStorage.getItem('token')));
+      } catch(error) {
+        this.token = 0;
+      }
+    }
+    if (this.$route.query.username === undefined) {
+      this.username = "noUser"
+    } else {
+      this.username = this.$route.query.username
+    }
   },
 
   methods: {
@@ -1116,6 +1133,10 @@ export default {
       //console.log(event.target.firstChild.data);
       this.education = event.target.firstChild.data.replace(/(^\s+)|(\s+$)/g, '');
     },
+
+    openOffert(offertID) {
+      this.$router.replace({ path: `/oferts/${offertID}`, query: { username: this.username, token: this.token, offertID: offertID } })
+    }
 
   },
 

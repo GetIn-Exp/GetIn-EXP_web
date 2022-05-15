@@ -343,9 +343,8 @@ export default {
       this.$router.replace({ path: '/register' })
     },
     goToHomePage() {
-      localStorage.logged = this.logged;
       localStorage.token = this.token;
-      this.$router.replace({ path: '/profile', query: { username: this.username, logged: this.logged, token: this.token } })
+      this.$router.replace({ path: '/home', query: { username: this.username, token: this.token } })
     },
     showPassword () {
       this.pswHidden = !this.pswHidden

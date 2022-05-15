@@ -181,12 +181,11 @@ export default {
    },
   data () {
     return {
-      noms: "holi",
       token: 0,
       thereIsExperience: true,
       profiles: [
         {
-          id: 0,
+          id: 1,
           name: "John",
           surnames:"Murray McCuffy",
           username: "johnMurray99",
@@ -269,7 +268,7 @@ export default {
 
         },
         {
-          id: 1,
+          id: 2,
           name: "Fleur",
           surnames:"Blanchet Dupont",
           username: "blanchetFleur",
@@ -349,7 +348,7 @@ export default {
           ]
         },
         {
-          id: 2,
+          id: 3,
           name: "Carmen",
           surnames:"Lozano Pelayo",
           username: "carmenLP",
