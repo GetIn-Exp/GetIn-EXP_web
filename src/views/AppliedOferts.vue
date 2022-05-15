@@ -1,10 +1,31 @@
 <template>
-    <p>holi</p>
+  <div class="mt-10">
+    <ul id="offerts-panel">
+      <li v-for="item in currentOferts" :key="item.id">
+        <offert-card>
+          <template #title> {{ listaOfertas[item].title }} </template>
+          <template #description>
+            {{ listaOfertas[item].description }}
+          </template>
+
+          <template #company> {{ listaOfertas[item].company }} </template>
+          <template #location> {{ listaOfertas[item].location }} </template>
+          <template #salary> {{ listaOfertas[item].salary }} </template>
+        </offert-card>
+      </li>
+    </ul>
+  </div>
+
 </template>
 
 <script>
+import OffertCard from "./components/OffertCard.vue";
+
 export default {
   name: "AppliedOferts",
+  components: {
+    OffertCard,
+  },
   data () {
     return {
       token: 0,
