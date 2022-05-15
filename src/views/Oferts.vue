@@ -57,7 +57,7 @@
             </div>
           </div>
           <div class="col-3">
-            <img class="photo-container" src="img/theme/on_progress.png" alt="" />
+            <img class="photo-container" v-bind:src="getCompanyImg()" alt="CompanyImage" />
             <div class="mb-3 mt-5">
               <small class="text-uppercase">CATEGORIES</small>
             </div>
@@ -121,6 +121,7 @@ export default {
     return {
       ofertID: 0,
       username: '',
+      companyImg: 'img/theme/on_progress.png',
       token: 0,
       ofertsAlreadyApplied: '',
       listaOfertas: [
@@ -844,7 +845,10 @@ export default {
         localStorage.setItem('appliedOferts',  this.ofertsAlreadyApplied)
         this.$router.replace({ path: '/appliedOferts' })
       }
-    }
+    },
+    getCompanyImg() {
+      return 'img/theme/company_logo_' +  String(Math.floor(Math.random() * 6)) + '.png'
+    },
   },
   beforeMount () {
     this.ofertID = this.$route.query.offertID
