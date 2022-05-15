@@ -835,7 +835,8 @@ export default {
   },
   methods: {
     applyOffert () {
-      if (this.username === "noUser") {
+      let logged = (localStorage.logged === 'true');
+      if (!logged) {
           this.$swal('Warning', 'You have not signed in!\n Please, log in your account for applying.', 'warning')
       } else {
         this.$swal('Success', 'You have successfully applied for this ofert!', 'success')
