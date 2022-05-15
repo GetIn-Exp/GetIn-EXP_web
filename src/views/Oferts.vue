@@ -836,12 +836,16 @@ export default {
   },
   methods: {
     applyOffert () {
-      let logged = (localStorage.logged === 'true');
+      let logged = (localStorage.logged === 'true')
+      let idOfert = parseInt(this.ofertID)
       if (!logged) {
           this.$swal('Warning', 'You have not signed in!\n Please, log in your account for applying.', 'warning')
-      } else {
+      } else if (this.ofertsAlreadyApplied.includes(idOfert)) {
+        this.$swal('Warning', 'You have already applied for this ofert!\n Let´s check other ones!', 'warning')
+      }
+      else {
         this.$swal('Success', 'You have successfully applied for this ofert!', 'success')
-        this.ofertsAlreadyApplied.push(parseInt(this.ofertID))
+        this.ofertsAlreadyApplied.push(idOfert)
         localStorage.setItem('appliedOferts',  this.ofertsAlreadyApplied)
         this.$router.replace({ path: '/appliedOferts' })
       }
