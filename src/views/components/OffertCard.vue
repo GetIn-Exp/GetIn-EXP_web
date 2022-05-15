@@ -6,7 +6,7 @@
         <div class="card border my-card container p-3">
             <div class="row">
                 <div class="col-3 card-img-container"> 
-                    <img src='img/theme/pic-company-logo.png' alt="NoImage"/>
+                    <img src='img/theme/company_logo_0.png' alt="NoImage"/>
                 </div>
 
                 <div class="col my-card-body">

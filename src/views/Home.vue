@@ -7,7 +7,7 @@
           <div class="col-lg-4 mt-5 mt-lg-0">
               <div>
                 <h1 class="h1-large text-center">
-                  Buscar Ofertas
+                  Search Offerts
                 </h1>
               </div>
 
@@ -59,7 +59,7 @@
                               <div class="input-group">
                                 <input
                                   aria-describedby="addon-right addon-left"
-                                  placeholder="QUÉ"
+                                  placeholder="WHAT"
                                   class="form-control dropdown-input border-right-0"
                                   v-model="what"
                                   :class="[
@@ -95,7 +95,7 @@
                               <div class="input-group">
                                 <input
                                   aria-describedby="addon-right addon-left"
-                                  placeholder="DÓNDE"
+                                  placeholder="WHERE"
                                   class="form-control dropdown-input border-right-0"
                                   v-model="where"
                                   :class="[
@@ -161,7 +161,7 @@
                               <div class="input-group">
                                 <input
                                   aria-describedby="addon-right addon-left"
-                                  placeholder="EDUCACIÓN"
+                                  placeholder="EDUCATION"
                                   class="form-control dropdown-input border-right-0"
                                   v-model="education"
                                   :class="[
@@ -195,7 +195,7 @@
                               <div class="input-group">
                                 <input
                                   aria-describedby="addon-right addon-left"
-                                  placeholder="CATEGORÍA"
+                                  placeholder="CATEGORY"
                                   class="form-control dropdown-input border-right-0"
                                   v-model="category"
                                   :class="[
@@ -235,7 +235,7 @@
                     <span class="btn-inner--icon"
                       ><i class="ni ni-atom"></i
                     ></span>
-                    SEARCH RESULTS
+                    SHOW RESULTS
                 </button>
 
               </div>
@@ -291,13 +291,13 @@
             <div v-else id="home-results">
               <div class="mb-3 ml-4 mr-4">
                 <h4>
-                  Ofertas relacionadas con
+                  Offerts related to 
                   <span class="font-weight-bold text-uppercase">
                     {{ resultsWhat }}
                   </span>
                 </h4>
                 <small class="text-uppercase font-weight-bold">
-                  {{ listaResultadosOfertas.length }} resultados en {{ resultsWhere }}
+                  {{ listaResultadosOfertas.length }} results in {{ resultsWhere }}
                 </small>
                 <hr class="mt-0" style="border: 1px solid black" />
               </div>
@@ -380,8 +380,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 0,
-            "education": "Grado",
-            "category": "Ingenieros y técnicos"
+            "education": "Degree",
+            "category": "Engineers and Technics"
         },
         {
             "title": "Software Tester",
@@ -395,8 +395,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 1,
-            "education": "Grado",
-            "category": "Ingenieros y técnicos"
+            "education": "Degree",
+            "category": "Engineers and Technics"
         },
         {
             "title": "Scrum Master",
@@ -410,8 +410,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 2,
-            "education": "Grado",
-            "category": "Ingenieros y técnicos"
+            "education": "Degree",
+            "category": "Engineers and Technics"
         },
         {
             "title": "Java Engineer",
@@ -425,8 +425,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 3,
-            "education": "Grado",
-            "category": "Ingenieros y técnicos"
+            "education": "Degree",
+            "category": "Engineers and Technics"
         },
         {
             "title": "Beca Ingeniería eléctrica",
@@ -440,8 +440,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 4,
-            "education": "Grado",
-            "category": "Ingenieros y técnicos"
+            "education": "Degree",
+            "category": "Engineers and Technics"
         },
         {
             "title": "Recién Titulado/a en Ingeniería Eléctrica",
@@ -455,8 +455,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 5,
-            "education": "Grado",
-            "category": "Ingenieros y técnicos"
+            "education": "Degree",
+            "category": "Engineers and Technics"
         },
         {
             "title": "Senior Talent Acquisition Recruiter",
@@ -470,8 +470,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 6,
-            "education": "Grado",
-            "category": "Ingenieros y técnicos"
+            "education": "Degree",
+            "category": "Engineers and Technics"
         },
         {
             "title": "Front End React Developer",
@@ -485,8 +485,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 7,
-            "education": "Grado",
-            "category": "Ingenieros y técnicos"
+            "education": "Degree",
+            "category": "Engineers and Technics"
         },
         {
             "title": "Senior Full Stack Developer",
@@ -500,8 +500,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 8,
-            "education": "Grado",
-            "category": "Ingenieros y técnicos"
+            "education": "Degree",
+            "category": "Engineers and Technics"
         },
         {
             "title": "Técnico de Obra",
@@ -515,8 +515,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "18.000 € - 24.000 € Bruto/año",
             "id": 9,
-            "education": "Grado",
-            "category": "Ingenieros y técnicos"
+            "education": "Degree",
+            "category": "Engineers and Technics"
         },
         {
             "title": "Técnico titulado (ingeniero/arquitecto técnico)",
@@ -530,8 +530,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "24.000 € - 33.000 € Bruto/año",
             "id": 10,
-            "education": "Grado",
-            "category": "Ingenieros y técnicos"
+            "education": "Degree",
+            "category": "Engineers and Technics"
         },
         {
             "title": "Técnico/a depuración aguas industriales-Ingeniero/a de proyectos - Barcelona",
@@ -545,8 +545,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 11,
-            "education": "Grado",
-            "category": "Ingenieros y técnicos"
+            "education": "Degree",
+            "category": "Engineers and Technics"
         },
         {
             "title": "INGENIERO/A JUNIOR",
@@ -560,8 +560,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "18.000 € - 24.000 € Bruto/año",
             "id": 12,
-            "education": "Grado",
-            "category": "Ingenieros y técnicos"
+            "education": "Degree",
+            "category": "Engineers and Technics"
         },
         {
             "title": "Ingeniero/a Ensayos Resistencia al Fuego",
@@ -575,8 +575,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 13,
-            "education": "Grado",
-            "category": "Ingenieros y técnicos"
+            "education": "Degree",
+            "category": "Engineers and Technics"
         },
         {
             "title": "ENGINYERIA ELECTRONICA i/o MECANICA varies àrees.",
@@ -590,8 +590,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "27.000 € - 36.000 € Bruto/año",
             "id": 14,
-            "education": "Grado",
-            "category": "Ingenieros y técnicos"
+            "education": "Degree",
+            "category": "Engineers and Technics"
         },
         {
             "title": "Material Manager",
@@ -605,8 +605,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 15,
-            "education": "Grado",
-            "category": "Ingenieros y técnicos"
+            "education": "Degree",
+            "category": "Engineers and Technics"
         },
         {
             "title": "ingeniero/a Construcción - Aparejador/a",
@@ -620,8 +620,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Más de 20.000 €",
             "id": 16,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "Arquitecto/a",
@@ -635,8 +635,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 17,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "COMERCIAL PARA ARKLAM (TABLA)",
@@ -650,8 +650,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "40.000 € - 50.000 € Bruto/año",
             "id": 18,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "Diseñador/a de cocinas",
@@ -665,8 +665,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 19,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "Jefe de Obras",
@@ -680,8 +680,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "24.000 € - 36.000 € Bruto/año",
             "id": 20,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "OFERTA DE ARQUITECTO",
@@ -695,8 +695,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "18.000 € - 24.000 € Bruto/año",
             "id": 21,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "ARQUITECTO/A O INGENIERO/A DE CAMINOS URBANISTA",
@@ -710,8 +710,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 22,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "TÉCNICO/A DE PROVEEDORES",
@@ -725,8 +725,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 23,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "Agente Inmobiliario/a Venta / Alquiler",
@@ -740,8 +740,8 @@ export default {
             "work_time": "Jornada indiferente",
             "salary": "18.000 € - 120.000 € Bruto/año",
             "id": 24,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "TECNICA/O POST VENTA- SEVILLA",
@@ -755,8 +755,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 25,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "Jefe de obra + Jefe producción (Sector hotelero) Alicante",
@@ -770,8 +770,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Más de 20.000 €",
             "id": 26,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "Jefe de obra (Obras de Edificación, Terciaria, Industrial y Retail) Sevilla",
@@ -785,8 +785,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Más de 20.000 €",
             "id": 27,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "Arquitecto/a",
@@ -800,8 +800,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 28,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "INGENIERO/A JUNIOR NUDO NORTE CALLE 30 - 22/0139",
@@ -815,8 +815,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 29,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "Aparejador",
@@ -830,8 +830,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 30,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "Ingeniero Estructural (Cypecad)",
@@ -845,8 +845,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "27.000 € - 30.000 € Bruto/año",
             "id": 31,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "ARQUITECTO",
@@ -860,8 +860,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "12.000 € - 24.000 € Bruto/año",
             "id": 32,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "Arquitecta/o, arquitecta/o técnico, ingeniera/o en edificación, ingeniera/o civil o caminos",
@@ -875,8 +875,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "1800 € - 2100 € Bruto/mes",
             "id": 33,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "Jefe de obra",
@@ -890,8 +890,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 34,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "Diseñador/a de interiores",
@@ -905,8 +905,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "15.000 € - 24.000 € Bruto/año",
             "id": 35,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "Arquitecto/a técnico/a",
@@ -920,8 +920,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "18.000 € - 30.000 € Bruto/año",
             "id": 36,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "COORDINADOR DE INGENIERÍA DE PROYECTO EPC",
@@ -935,8 +935,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 37,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "Arquitecto Senior",
@@ -950,8 +950,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "30.000 € - 36.000 € Bruto/año",
             "id": 38,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "ARQUITECTO/A- INTERIORISTA",
@@ -965,8 +965,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 39,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "AUXILIAR TÉCNICO CON ALTO NIVEL DE FRANCÉS",
@@ -980,8 +980,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 40,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "Arquitecto/a Jr BIM",
@@ -995,8 +995,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 41,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "COMERCIAL",
@@ -1010,8 +1010,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Más de 10.000 €",
             "id": 42,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "Beca Arquitecto Superior (h/m)",
@@ -1025,8 +1025,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 43,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "Arquitecto",
@@ -1040,8 +1040,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 44,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "Responsable de ejecución de obras de reforma de viviendas",
@@ -1055,8 +1055,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "Salario no disponible",
             "id": 45,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         },
         {
             "title": "Arquitecto Tecnico",
@@ -1070,8 +1070,8 @@ export default {
             "work_time": "Jornada completa",
             "salary": "18.000 € - 27.000 € Bruto/año",
             "id": 46,
-            "education": "Grado",
-            "category": "Inmobiliario y construcción"
+            "education": "Degree",
+            "category": "Construction"
         }
       ],
 
