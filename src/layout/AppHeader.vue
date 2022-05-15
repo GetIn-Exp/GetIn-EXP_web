@@ -10,7 +10,7 @@
         <ul v-if="logged" class="navbar-nav ml-5">
           <li class="nav-item"><router-link to="/home" class="nav-link">JOB OFFERTS</router-link></li>
           <li class="nav-item"><router-link to="/profile" class="nav-link">PROFILE</router-link></li>
-          <li class="nav-item"><router-link to="/" class="nav-link" @click="logOut()">LOG OUT</router-link></li>
+          <li class="nav-item"><a class="nav-link" @click="logOut()">LOG OUT</a></li>
         </ul>
         <ul v-else class="navbar-nav ml-5">
           <li class="nav-item"><router-link to="/home" class="nav-link">JOB OFFERTS</router-link></li>
@@ -51,9 +51,12 @@ export default {
   },
   methods: {
     logOut () {
-      localStorage.setItem('logged', false)
-      localStorage.setItem('token', '0')
-      // localStorage.setItem()
+      localStorage.setItem('logged', false);
+      localStorage.setItem('token', 0);
+      localStorage.setItem('appliedOferts', '')
+      this.logged = false;
+      this.token = 0;
+      this.$router.replace({ path: '/' })
     }
   }
 };

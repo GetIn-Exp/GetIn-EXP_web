@@ -361,13 +361,13 @@ a:hover {
 .navbar .navbar-nav .nav-item .nav-link {
 	padding-top: 0.625rem;
 	padding-bottom: 0.625rem;
-	color: #5e6576 !important;
+	color: #5e6576;
 	text-decoration: none;
 	transition: all 0.2s ease;
 }
 
 .navbar .navbar-nav .nav-item .nav-link:hover {
-	color: #4bc2a4 !important;
+	color: #4bc2a4;
 }
 
 .navbar .nav-item.dropdown.show .nav-link,
