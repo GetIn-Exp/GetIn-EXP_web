@@ -26,7 +26,7 @@
         <div v-else>
           <img class="p-2 img-center" src='img/theme/404_noOferts.jpg' alt="NoOfertsApplied"/>
           <h3 class="text-center">Looks like you haven't applied for any ofert yet.<br>Let's get some started!</h3>
-          <h5 class="text-center">Go to <a href="/home">Home</a></h5>
+          <h5 class="text-center">Go to <router-link to="/home">Home</router-link></h5>
         </div>
       </div>
     </div>

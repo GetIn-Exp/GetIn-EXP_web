@@ -239,10 +239,6 @@
                 </button>
 
               </div>
-
-              <div class="row justify-content-center">
-                  <img class="p-2" src='img/theme/logo.jpg' alt="NoImage"/>
-              </div>
           </div>
 
           <!--_Second Column: offerts list -->
@@ -257,8 +253,8 @@
                   We've been there too! That's the reason we've created the perfect job finder for you.
                   Let the search engine do your work for you!
                 </p>
-                <div style ="height: 300px">
-                  <img class="my-img-container" src="img/theme/experience.jpg" alt="wtf meme" />
+                <div class="my-img-container" >
+                  <img class="my-img" src="img/theme/searchSome.png" alt="SearchSomeJobs" />
                 </div>
               </div>
             </div>
@@ -268,8 +264,8 @@
               <div class="flex-column text-container text-center">
                 <h2>HEY! Invalid Search Input</h2>
                 <p class="font-weight-bold"> Please, fill up all the requested inputs before searching </p>
-                <div style ="height: 300px">
-                  <img class="my-img-container" src="img/theme/wtf.jpg" alt="wtf meme" />
+                <div class="my-img-container">
+                  <img class="my-img" src="img/theme/ohCrap.png" alt="SyntaxError" />
                 </div>
               </div>
             </div>
@@ -277,12 +273,10 @@
             <!-- NO RESULTS -->
             <div v-else-if="searchPerformed & searchIsValid & !hasResults" id="home-not-results">
               <div class="flex-column text-container text-center">
-                <h2>OPS! No results found</h2>
-                <p class="font-weight-bold"> You can try either changing the job title or the location. </p>
-                <div style="height: 300px;">
-                  <img class="my-img-container" src="img/theme/ops.jpg" alt="ops meme" />
+                <div class="my-img-container">
+                  <img class="my-img-notFound" src="img/theme/notFound.jpg" alt="NoJobsFound" />
+                  <p class="font-weight-bold"> You can try either changing the job title or the location. </p>
                 </div>
-
               </div>
 
             </div>
@@ -291,7 +285,7 @@
             <div v-else id="home-results">
               <div class="mb-3 ml-4 mr-4">
                 <h4>
-                  Offerts related to 
+                  Offerts related to
                   <span class="font-weight-bold text-uppercase">
                     {{ resultsWhat }}
                   </span>
