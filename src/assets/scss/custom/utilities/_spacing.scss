@@ -68,13 +68,30 @@
     .mb--300 {
         margin-bottom: -300px !important;
     }
+    .mt-10 {
+        margin-top: 10% !important;
+    }
 
     .mb--5 {
         margin-bottom: -5% !important;
     }
 
     // Large margins in pixels
-
+    .pl-15-percent {
+        padding-left: 15% !important;
+    }
+    .pl-30 {
+        padding-left: 30px !important;
+    }
+    .pl-50 {
+        padding-left: 50px !important;
+    }
+    .pt-10 {
+        padding-top: 10px !important;
+    }
+    .pt-30 {
+        padding-top: 30px !important;
+    }
     .pt-100 {
         padding-top: 100px !important;
     }
@@ -105,4 +122,13 @@
     .pb-300 {
         padding-bottom: 300px!important;
     }
+}
+
+.noExperienceText {
+    margin-top: 7%;
+}
+
+// center
+.center-items {
+    position: center !important;
 }
