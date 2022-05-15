@@ -1077,11 +1077,12 @@ export default {
 
   methods: {
     search(event) {
+      console.log(event)
       this.searchPerformed = true;
       this.resultsWhat = ("".includes(this.what))? "CUALQUIERA": this.what;
       this.resultsWhere = ("".includes(this.where))? "ESPAÑA" : this.where;
       this.searchIsValid = this.whatIsValid & this.whereIsValid &
-                            this.educationIsValid & this.categoryIsValid;
+                            this.educationIsValid && this.categoryIsValid;
 
       if (this.searchIsValid) {
 
@@ -1155,8 +1156,8 @@ export default {
 
     // Computed just at the beginning!
     uniqueTitles(){
-      var mylist = [];
-      for (var item of this.listaOfertas){
+      let mylist = [];
+      for (let item of this.listaOfertas){
         if (!(mylist.includes(item.title))){
           mylist.push(item.title);
         }
@@ -1165,8 +1166,8 @@ export default {
     },
 
     uniqueLocations(){
-      var mylist = [];
-      for (var item of this.listaOfertas){
+      let mylist = [];
+      for (let item of this.listaOfertas){
         if (!(mylist.includes(item.location))){
           mylist.push(item.location);
         }
@@ -1175,8 +1176,8 @@ export default {
     },
 
     uniqueCategories(){
-      var mylist = [];
-      for (var item of this.listaOfertas){
+      let mylist = [];
+      for (let item of this.listaOfertas){
         if (!(mylist.includes(item.category))){
           mylist.push(item.category);
         }
@@ -1185,8 +1186,8 @@ export default {
     },
 
     uniqueEducations(){
-      var mylist = [];
-      for (var item of this.listaOfertas){
+      let mylist = [];
+      for (let item of this.listaOfertas){
         if (!(mylist.includes(item.education))){
           mylist.push(item.education);
         }
@@ -1239,30 +1240,10 @@ export default {
 
 <!-- Can't be scoped if we pretend to export label-style outside -->
 <style>
-.roundered {
-  border-radius: 1.5rem;
-}
-
-
-.label-style {
-  font-size: 0.9rem;
-  font-weight: 500;
-  line-height: 1.5;
-  color: #adb5bd;
-  background-color: #fff;
-  border: 1px solid #cad1d7;
-  border-radius: 0.25rem;
-}
 
 .dropdown-input{
     padding-right: 0.75rem !important;
     border: 1px solid #cad1d7 !important;
-}
-
-.my-dropdown{
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
 }
 
 .dropdown-content{
@@ -1272,15 +1253,6 @@ export default {
 .dropdown-content:hover{
     background-color: #cad1d7;
     border-block: 1px solid #659ac8;
-}
-
-.dropdown-categories {
-  position: absolute;
-  top: 100%;
-  right: 100% !important;
-  float: left;
-  background-color: inherit;
-  background-clip: padding-box;
 }
 
 #home-form-btn:hover{
@@ -1298,25 +1270,8 @@ export default {
   margin-bottom: 1rem;
 }
 
-#home-form-advanced-btn{
-  width: 100%;
-}
-
 .my-img-container{
   max-height: 100%;
-}
-
-.checkout_card {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-}
-
-/* Not used */
-.form-btn-container {
-  position: relative;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  margin-left: 20px;
-  margin-right: 20px;
 }
 
 .form-btn-container .form-btn {
@@ -1354,19 +1309,4 @@ export default {
   font-size: 6.3rem;
 }
 
-.form-hr {
-  display: block;
-  position: relative;
-  padding: 0;
-  margin: 8px auto;
-  height: 0;
-  width: 100%;
-  max-height: 0;
-  font-size: 1px;
-  line-height: 0;
-  clear: both;
-  border: none;
-  border-top: 1px solid #adb5bd;
-  border-bottom: 1px solid #adb5bd;
-}
 </style>
