@@ -576,6 +576,24 @@
  pointer-events:none
 }
 
+                
+// Homepage img classes
+.img-container-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0;
+    padding-right: 0;
+    img{
+        width:175px;
+        height:175px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+}
+
+.img-container img {
+
 
 // Oferts section
 .clear-filter{
@@ -724,7 +742,6 @@
     margin:0 -100%;
 }
 
-
 .profile-title{
     margin-top: 30px;
     text-align: center;
@@ -827,3 +844,4 @@
     display: flex;
     justify-content: center;
 }
+
