@@ -2,11 +2,15 @@ import Vue from "vue";
 import Router from "vue-router";
 import AppHeader from "./layout/AppHeader";
 import AppFooter from "./layout/AppFooter";
-import Components from "./views/Components.vue";
 import Landing from "./views/Landing.vue";
 import Login from "./views/Login.vue";
 import Register from "./views/Register.vue";
 import Profile from "./views/Profile.vue";
+import Home from "./views/Home.vue";
+import Oferts from "./views/Oferts";
+import StarterHeader from "@/layout/starter/StarterHeader";
+import StarterFooter from "@/layout/starter/StarterFooter";
+import AppliedOferts from "@/views/AppliedOferts";
 
 Vue.use(Router);
 
@@ -15,19 +19,19 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "components",
+      name: "landing",
       components: {
-        header: AppHeader,
-        default: Components,
-        footer: AppFooter
+        header: StarterHeader,
+        default: Landing,
+        footer: StarterFooter
       }
     },
     {
-      path: "/landing",
-      name: "landing",
+      path: "/home",
+      name: "homepage",
       components: {
         header: AppHeader,
-        default: Landing,
+        default: Home,
         footer: AppFooter
       }
     },
@@ -35,17 +39,31 @@ export default new Router({
       path: "/login",
       name: "login",
       components: {
-        header: AppHeader,
         default: Login,
-        footer: AppFooter
       }
     },
     {
       path: "/register",
       name: "register",
       components: {
-        header: AppHeader,
         default: Register,
+      }
+    },
+    {
+      path: "/oferts/:id",
+      name: "oferts",
+      components: {
+        header: AppHeader,
+        default: Oferts,
+        footer: AppFooter
+      }
+    },
+    {
+      path: "/appliedOferts",
+      name: "appliedOferts",
+      components: {
+        header: AppHeader,
+        default: AppliedOferts,
         footer: AppFooter
       }
     },

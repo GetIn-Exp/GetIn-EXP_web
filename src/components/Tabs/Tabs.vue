@@ -15,7 +15,7 @@
             ]">
 
           <li v-for="tab in tabs"
-              class="nav-item"
+              class="nav-item "
               :key="tab.id || tab.title">
 
             <a data-toggle="tab"
