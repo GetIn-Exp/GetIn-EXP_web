@@ -5,7 +5,7 @@
       <div class="container">
         <!-- Get-in-EXP LOGO -->
         <router-link to="/">
-          <img class="img-startHeader" src="img/logos/logo_Startheader.png" alt="startHeaderLogo">
+          <img class="img-startHeader" src="img/logos/logo_navbar.png" alt="startHeaderLogo">
         </router-link>
         <ul v-if="logged" class="navbar-nav ml-5">
           <li class="nav-item"><router-link to="/home" class="nav-link">JOB OFFERTS</router-link></li>
@@ -49,7 +49,7 @@ export default {
     }
   },
   methods: {
-    logOut(n) {
+    logOut() {
       localStorage.setItem('logged', false);
       localStorage.setItem('token', 0);
       localStorage.setItem('appliedOferts', '')
