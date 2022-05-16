@@ -33,7 +33,7 @@
     ·
     <a href="https://github.com/GetIn-Exp/GetIn-EXP_web/issues">Report Bug</a>
     ·
-    <a href="hhttps://github.com/GetIn-Exp/GetIn-EXP_web/issues">Request Feature</a>
+    <a href="https://github.com/GetIn-Exp/GetIn-EXP_web/issues">Request Feature</a>
   </p>
 </div>
 
@@ -72,7 +72,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://user-images.githubusercontent.com/57969201/168575108-fdd11b06-f58a-4c84-9715-8ebb20ac796e.png)
 
-
+<h4>Check our website with our <a href="https://get-in-exp-qrcditwn6-getin-exp.vercel.app/#/">DEMO</a></h4>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -84,6 +84,10 @@
 * [Vue.js](https://vuejs.org/)
 * [Bootstrap](https://getbootstrap.com)
 * [Material UI](https://mui.com/)
+
+### Deployed With
+
+* [Vercel](https://vercel.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
