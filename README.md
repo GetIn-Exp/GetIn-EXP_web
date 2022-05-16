@@ -29,7 +29,7 @@
     <a href=https://github.com/GetIn-Exp/GetIn-EXP_web/wiki><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="">View Demo</a>
+    <a href="https://get-in-exp-qrcditwn6-getin-exp.vercel.app">View Demo</a>
     ·
     <a href="https://github.com/GetIn-Exp/GetIn-EXP_web/issues">Report Bug</a>
     ·
@@ -70,7 +70,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](añadir foto)
+[![Product Name Screen Shot][product-screenshot]](https://user-images.githubusercontent.com/57969201/168575108-fdd11b06-f58a-4c84-9715-8ebb20ac796e.png)
+
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -172,4 +173,4 @@ Project Link: [GetIn-EXP](https://github.com/GetIn-Exp/GetIn-EXP_web)
 [issues-url]: https://github.com/GetIn-EXP/GetIn-EXP_web/issues
 [license-shield]: https://img.shields.io/github/license/GetIn-EXP/GetIn-EXP_web.svg?style=for-the-badge
 [license-url]: https://github.com/GetIn-EXP/GetIn-EXP_web/blob/master/LICENSE.txt
-[product-screenshot]: 
+[product-screenshot]: https://user-images.githubusercontent.com/57969201/168575108-fdd11b06-f58a-4c84-9715-8ebb20ac796e.png
