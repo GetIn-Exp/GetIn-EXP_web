@@ -139,40 +139,11 @@
                                 {{ item }}
                             </li>
                         </base-dropdown>
-                        <!----><!---->
-
-                        <!---->
                       </div>
 
                     </div>
 
                     <div id="home-form-filter" v-else class="input-group">
-
-                      <!--
-                      <div id="home-form-datepicker" class="input-group mb-2 input-daterange datepicker"
-                      >
-                        <base-input
-                          name="calendar"
-                          class="mb-0 pb-0"
-                        >
-                          <template v-slot:addonLeft>
-                            <i class="ni ni-calendar-grid-58 mr-2"></i>
-                            <span class="input-text">AFTER</span>
-                          </template>
-
-                          <flat-picker
-                            slot-scope="{ focus, blur }"
-                            @on-open="focus"
-                            @on-close="blur"
-                            :config="{ allowInput: true }"
-                            class="form-control datepicker"
-                            v-model="dates.simple"
-                          >
-                          </flat-picker>
-                        </base-input>
-                      </div>
-                      -->
-
                       <div id="home-form-education" class="input-group mb-2">
                         <base-dropdown tag="div" style="width:100% !important" menuClasses="my-dropdown">
                             <template v-slot:title>
@@ -1085,7 +1056,6 @@ export default {
   },
 
   methods: {
-
     // Searches and updates the last page state
     search(event) {
       //console.log(event)
