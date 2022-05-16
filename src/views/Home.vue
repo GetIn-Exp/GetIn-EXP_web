@@ -3,15 +3,31 @@
     <br><br>
     <div class="container pt-lg-md">
         <div class="row justify-content-center">
+
+              <h1 class="h1-large text-center">
+                Search Offerts
+              </h1>
+
+              <p class="font-weight-bold pt-1">
+                In Getin-Exp we know how difficult is to get your first job without experience.
+                <strong>We've been there too!</strong> That's the reason we've created the perfect job finder.
+                To begin using it, fill the requested forms and click the SHOW RESULTS button.
+              </p>
+        </div>
+        
+        <div class="row justify-content-center">
+
           <!-- First Column: search parameters and filters -->
-          <div class="col-lg-4 mt-5 mt-lg-0">
-              <div>
-                <h1 class="h1-large text-center">
-                  Search Offerts
-                </h1>
+          <div class="col-lg-4 mt-lg-0">
+
+              <div class="ml-3 mr-3 face-img-container">
+                <img v-if="userIsSearching & newSearchValid" class="face-img" src="img/theme/happy_face.png" alt="The Search will be valid" />
+                <img v-else-if="userIsSearching & !newSearchValid" class="face-img" src="img/theme/sad_face.png" alt="The Search will provide no results" />
+                <img v-else-if="!userIsSearching & newSearchValid" class="face-img" src="img/theme/super_happy_face.png" alt="The Search has been a success" />
+                <img v-else class="face-img" src="img/theme/super_sad_face.png" alt="The Search has been a failure" />
               </div>
 
-              <div class="card shadow mb-3">
+              <div class="card shadow search-container">
 
                 <div class="container pl-0 pr-0">
                   <div class="row">
@@ -24,7 +40,7 @@
                         class="p-2 rounded-0 border-bottom shadow-none nav-item nav-link"
                         :class="{'active': !advanced }"
                         @click="advanced = false"
-                        ><div>DEFAULT OPTIONS</div>
+                        ><div>BASIC SEARCH</div>
                       </a>
                     </div>
                     <div class="col pl-0 nav-pills nav-fill nav-item">
@@ -36,7 +52,7 @@
                         class="p-2 rounded-0 border-bottom shadow-none nav-item nav-link"
                         :class="{'active': advanced }"
                         @click="advanced = true"
-                        ><div>ADVANCED OPTIONS</div>
+                        ><div>OTHER FILTERS</div>
                       </a>
                     </div>
                   </div>
@@ -63,16 +79,17 @@
                                   class="form-control dropdown-input border-right-0"
                                   v-model="what"
                                   :class="[
-                                    { 'border-primary': whatIsValid },
-                                    { 'border-danger': whatIsInvalid },
+                                    //{ 'border-primary': userIsSearching && whatIsValid },
+                                    //{ 'border-danger': userIsSearching && !whatIsValid },
                                   ]"
+                                  @click="userIsSearching = true;"
                                 />
                                 <div class="input-group-append">
                                   <span
                                     class="input-group-text border-left-0"
                                     :class="[
-                                      { 'text-primary border-primary': whatIsValid },
-                                      { 'text-danger border-danger': whatIsInvalid },
+                                      //{ 'text-primary border-primary': userIsSearching && whatIsValid },
+                                      //{ 'text-danger border-danger': userIsSearching && !whatIsValid },
                                     ]"
                                     ><i class="ni ni-zoom-split-in"></i
                                   ></span>
@@ -99,16 +116,17 @@
                                   class="form-control dropdown-input border-right-0"
                                   v-model="where"
                                   :class="[
-                                    { 'border-primary': whereIsValid },
-                                    { 'border-danger': whereIsInvalid },
+                                    //{ 'border-primary': userIsSearching && whereIsValid },
+                                    //{ 'border-danger': userIsSearching && !whereIsValid },
                                   ]"
+                                  @click="userIsSearching = true;"
                                 />
                                 <div class="input-group-append">
                                   <span
                                     class="input-group-text border-left-0"
                                     :class="[
-                                      { 'text-primary border-primary': whereIsValid },
-                                      { 'text-danger border-danger': whereIsInvalid },
+                                      //{ 'text-primary border-primary': userIsSearching && whereIsValid },
+                                      //{ 'text-danger border-danger': userIsSearching && !whereIsValid },
                                     ]"
                                     ><i class="ni ni-pin-3"></i
                                   ></span>
@@ -136,16 +154,17 @@
                                   class="form-control dropdown-input border-right-0"
                                   v-model="education"
                                   :class="[
-                                    { 'border-primary': educationIsValid },
-                                    { 'border-danger': educationIsInvalid },
+                                    //{ 'border-primary': userIsSearching && educationIsValid },
+                                    //{ 'border-danger': userIsSearching && !educationIsValid },
                                   ]"
+                                  @click="userIsSearching = true;"
                                 />
                                 <div class="input-group-append">
                                   <span
                                     class="input-group-text border-left-0"
                                     :class="[
-                                      { 'text-primary border-primary': educationIsValid },
-                                      { 'text-danger border-danger': educationIsInvalid },
+                                      //{ 'text-primary border-primary': userIsSearching && educationIsValid },
+                                      //{ 'text-danger border-danger': userIsSearching && !educationIsValid },
                                     ]"
                                     ><i class="ni ni-books"></i
                                   ></span>
@@ -170,16 +189,17 @@
                                   class="form-control dropdown-input border-right-0"
                                   v-model="category"
                                   :class="[
-                                    { 'border-primary': categoryIsValid },
-                                    { 'border-danger': categoryIsInvalid },
+                                    //{ 'border-primary': userIsSearching && categoryIsValid },
+                                    //{ 'border-danger': userIsSearching && !categoryIsValid },
                                   ]"
+                                  @click="userIsSearching = true;"
                                 />
                                 <div class="input-group-append">
                                   <span
                                     class="input-group-text border-left-0"
                                     :class="[
-                                      { 'text-primary border-primary': categoryIsValid },
-                                      { 'text-danger border-danger': categoryIsInvalid },
+                                      //{ 'text-primary border-primary': userIsSearching && categoryIsValid },
+                                      //{ 'text-danger border-danger': userIsSearching && !categoryIsValid },
                                     ]"
                                     ><i class="ni ni-briefcase-24"></i
                                   ></span>
@@ -210,66 +230,39 @@
                 </button>
 
               </div>
+
           </div>
 
           <!--_Second Column: offerts list -->
-          <div class="col-lg-8">
-
-            <!-- ANYTHING SEARCHED SO FAR -->
-            <div v-if="!searchPerformed" id="home-empty">
-              <div class="flex-column text-container text-center">
-                <h2>Get the best offerts now!</h2>
-                <p class="font-weight-bold">
-                  In Getin-Exp we know how difficult is to get your first job without experience.
-                  We've been there too! That's the reason we've created the perfect job finder for you.
-                  Let the search engine do your work for you!
-                </p>
-                <div class="my-img-container" >
-                  <img class="my-img" src="img/theme/searchSome.png" alt="SearchSomeJobs" />
-                </div>
-              </div>
-            </div>
-
-            <!-- INVALID USER INPUT -->
-            <div v-else-if="searchPerformed & !searchIsValid" id="home-invalid-search">
-              <div class="flex-column text-container text-center">
-                <h2>HEY! Invalid Search Input</h2>
-                <p class="font-weight-bold"> Please, fill up all the requested inputs before searching </p>
-                <div class="my-img-container">
-                  <img class="my-img" src="img/theme/ohCrap.png" alt="SyntaxError" />
-                </div>
-              </div>
-            </div>
-
-            <!-- NO RESULTS -->
-            <div v-else-if="searchPerformed & searchIsValid & !hasResults" id="home-not-results">
-              <div class="flex-column text-container text-center">
-                <div class="my-img-container">
-                  <img class="my-img-notFound" src="img/theme/notFound.jpg" alt="NoJobsFound" />
-                  <p class="font-weight-bold"> You can try either changing the job title or the location. </p>
-                </div>
-              </div>
-
-            </div>
-
+          <div class="col-lg-8 mt-3">
+            
             <!-- DISPLAY OFFERTS -->
-            <div v-else id="home-results">
+            <div v-if="lastSearchValid" id="home-results">
               <div class="mb-3 ml-4 mr-4">
                 <h4>
                   Offerts related to
                   <span class="font-weight-bold text-uppercase">
-                    {{ resultsWhat }}
+                    {{ lastWhat }}
                   </span>
                 </h4>
                 <small class="text-uppercase font-weight-bold">
-                  {{ listaResultadosOfertas.length }} results in {{ resultsWhere }}
+                  {{ lastResultList.length }} results in {{ lastWhere }}
                 </small>
+
+                <small v-if="lastCategory.length > 0" class="font-weight-bold">
+                  Category: {{ lastCategory}}
+                </small>
+
+                <small v-if="lastEducation.length > 0" class="font-weight-bold">
+                  Education: {{ lastEducation}}
+                </small>
+
                 <hr class="mt-0" style="border: 1px solid black" />
               </div>
 
               <div class="row justify-content-center mb-3 ml-4 mr-4"></div>
               <ul id="offerts-panel">
-                <li v-for="item in listaResultadosOfertas" :key="item.id" @click="openOffert(item.id)">
+                <li v-for="item in lastResultList" :key="item.id" @click="openOffert(item.id)">
                   <offert-card>
                     <template #title> {{ item.title }} </template>
                     <template #description>
@@ -283,6 +276,7 @@
                 </li>
               </ul>
             </div>
+
           </div>
         </div>
       </div>
@@ -323,13 +317,17 @@ export default {
       },
 
       advanced: false,
-      searchPerformed: false,
-      searchIsValid: false,
-      hasResults: false,
 
-      resultsWhat: "",
-      resultsWhere: "",
-      listaResultadosOfertas: [],
+      //showResults: false,
+      //searchPerformed: false,
+      lastSearchValid: false,
+      lastWhat: "",
+      lastWhere: "",
+      lastEducation:"",
+      lastCategory:"",
+      lastResultList: [],
+
+      userIsSearching: false,
 
       // TODO: json request from url route
       listaOfertas: [
@@ -1058,25 +1056,16 @@ export default {
   },
 
   methods: {
+    // Searches and updates the last page state
     search(event) {
-      console.log(event)
-      this.searchPerformed = true;
-      this.resultsWhat = ("".includes(this.what))? "ALL": this.what;
-      this.resultsWhere = ("".includes(this.where))? "SPAIN" : this.where;
-      this.searchIsValid = this.whatIsValid & this.whereIsValid &
-                            this.educationIsValid && this.categoryIsValid;
-
-      if (this.searchIsValid) {
-
-        this.listaResultadosOfertas = this.listaOfertasFiltrada;
-        this.hasResults = this.listaResultadosOfertas.length > 0;
-      }
-
-      // If the search is invalid,
-      else{
-        this.advanced = false;
-        this.hasResults = false;
-      }
+      //console.log(event)
+      this.lastWhat = ("".includes(this.what))? "ALL": this.what;
+      this.lastWhere = ("".includes(this.where))? "ESPAÑA" : this.where;
+      this.lastEducation = this.education;
+      this.lastCategory = this.category;
+      this.lastResultList = this.listaOfertasFiltrada;
+      this.lastSearchValid = this.newSearchValid;
+      this.userIsSearching = false;
     },
 
     selectWhat(event){
@@ -1109,35 +1098,39 @@ export default {
 
     // Validate Input Functions
     whatIsValid() {
-      return this.searchPerformed & (this.uniqueTitlesFiltered.length > 0);
+      return this.uniqueTitlesFiltered.length > 0;
     },
 
     whatIsInvalid() {
-      return this.searchPerformed & (this.uniqueTitlesFiltered.length === 0);
+      return this.uniqueTitlesFiltered.length === 0;
     },
 
     whereIsValid() {
-      return this.searchPerformed & (this.uniqueLocationsFiltered.length > 0);
+      return this.uniqueLocationsFiltered.length > 0;
     },
 
     whereIsInvalid() {
-      return this.searchPerformed & (this.uniqueLocationsFiltered.length === 0);
+      return this.uniqueLocationsFiltered.length === 0;
     },
 
     educationIsValid() {
-      return this.searchPerformed & (this.uniqueEducationsFiltered.length > 0);
+      return this.uniqueEducationsFiltered.length > 0;
     },
 
     educationIsInvalid() {
-      return this.searchPerformed & (this.uniqueEducationsFiltered.length === 0);
+      return this.uniqueEducationsFiltered.length === 0;
     },
 
     categoryIsValid() {
-      return this.searchPerformed & (this.uniqueCategoriesFiltered.length > 0);
+      return this.uniqueCategoriesFiltered.length > 0;
     },
 
     categoryIsInvalid() {
-      return this.searchPerformed & (this.uniqueCategoriesFiltered.length === 0);
+      return this.uniqueCategoriesFiltered.length === 0;
+    },
+
+    newSearchValid() {
+      return (this.listaOfertasFiltrada.length > 0);
     },
 
     // Computed just at the beginning!
@@ -1184,25 +1177,25 @@ export default {
     //Filtering, computed on the fly
     uniqueTitlesFiltered(){
       return this.uniqueTitles.filter(title =>
-        title.toUpperCase().includes( this.what.toUpperCase() )
+        title.toUpperCase().startsWith( this.what.toUpperCase() )
       ).slice(0,5);
     },
 
     uniqueLocationsFiltered(){
       return this.uniqueLocations.filter(location =>
-        location.toUpperCase().includes( this.where.toUpperCase() )
+        location.toUpperCase().startsWith( this.where.toUpperCase() )
       ).slice(0,5);
     },
 
     uniqueCategoriesFiltered(){
       return this.uniqueCategories.filter(category =>
-        category.toUpperCase().includes( this.category.toUpperCase() )
+        category.toUpperCase().startsWith( this.category.toUpperCase() )
       ).slice(0,5);
     },
 
     uniqueEducationsFiltered(){
       return this.uniqueEducations.filter(education =>
-        education.toUpperCase().includes( this.education.toUpperCase() )
+        education.toUpperCase().startsWith( this.education.toUpperCase() )
       ).slice(0,5);
     },
 
@@ -1226,5 +1219,22 @@ export default {
 
 <!-- Can't be scoped if we pretend to export label-style outside -->
 <style>
+
+.face-img{
+  max-width: 80%;
+}
+
+.face-img-container{
+  z-index: -1;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.search-container{
+  margin-top: 55% !important;
+  margin-bottom: 20%;
+}
 
 </style>
