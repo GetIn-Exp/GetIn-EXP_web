@@ -82,7 +82,7 @@
                                     //{ 'border-primary': userIsSearching && whatIsValid },
                                     //{ 'border-danger': userIsSearching && !whatIsValid },
                                   ]"
-                                  @click="userIsSearching = true;"
+                                  @click="userIsSearching = true; what = ''; "
                                 />
                                 <div class="input-group-append">
                                   <span
@@ -97,10 +97,13 @@
 
                                 </div>
                             </template>
-                            <li class="dropdown-content" v-for="(item, index) in uniqueTitlesFiltered"
+                            <div v-if="what.length">
+                              <li class="dropdown-content" v-for="(item, index) in uniqueTitlesFiltered"
                                 :key="index" @click="selectWhat">
                                 {{ item }}
-                            </li>
+                              </li>
+                            </div>
+                            
                         </base-dropdown>
 
                         <!---->
@@ -119,7 +122,7 @@
                                     //{ 'border-primary': userIsSearching && whereIsValid },
                                     //{ 'border-danger': userIsSearching && !whereIsValid },
                                   ]"
-                                  @click="userIsSearching = true;"
+                                  @click="userIsSearching = true; where = ''; "
                                 />
                                 <div class="input-group-append">
                                   <span
@@ -134,10 +137,12 @@
 
                                 </div>
                             </template>
-                            <li class="dropdown-content" v-for="(item, index) in uniqueLocationsFiltered"
-                                :key="index" @click="selectWhere">
-                                {{ item }}
-                            </li>
+                            <div v-if="where.length">
+                              <li class="dropdown-content" v-for="(item, index) in uniqueLocationsFiltered"
+                                  :key="index" @click="selectWhere">
+                                  {{ item }}
+                              </li>
+                            </div>
                         </base-dropdown>
                         <!----><!---->
 
@@ -186,7 +191,7 @@
                                     //{ 'border-primary': userIsSearching && educationIsValid },
                                     //{ 'border-danger': userIsSearching && !educationIsValid },
                                   ]"
-                                  @click="userIsSearching = true;"
+                                  @click="userIsSearching = true; education = ''; "
                                 />
                                 <div class="input-group-append">
                                   <span
@@ -221,7 +226,7 @@
                                     //{ 'border-primary': userIsSearching && categoryIsValid },
                                     //{ 'border-danger': userIsSearching && !categoryIsValid },
                                   ]"
-                                  @click="userIsSearching = true;"
+                                  @click="userIsSearching = true; category = ''; "
                                 />
                                 <div class="input-group-append">
                                   <span
