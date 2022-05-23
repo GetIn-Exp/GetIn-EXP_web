@@ -5,7 +5,7 @@
       <div class="container">
         <!-- Get-in-EXP LOGO -->
         <router-link to="/home">
-          <img class="img-startHeader" src="img/logos/logo_AppHeader.png" alt="startHeaderLogo">
+          <img class="img-startHeader" src="img/logos/logo_AppHeader.png" alt="HeaderLogo">
         </router-link>
         <ul v-if="logged" class="navbar-nav ml-5">
           <li class="nav-item"><router-link to="/home" class="nav-link text-white">JOB OFFERTS</router-link></li>

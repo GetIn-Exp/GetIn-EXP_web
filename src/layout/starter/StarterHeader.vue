@@ -4,9 +4,9 @@
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-white">
       <div class="container">
         <!-- Get-in-EXP LOGO -->
-        <a href="#" >
-          <img class="img-startHeader" src="img/logos/logo_Startheader.png" alt="startHeaderLogo">
-        </a>
+        <router-link to="/">
+          <img class="img-startHeader" src="img/logos/logo_navbar.png" alt="startHeaderLogo">
+        </router-link>
         <ul v-if="logged" class="navbar-nav ml-5">
           <li class="nav-item"><router-link to="/home" class="nav-link">JOB OFFERTS</router-link></li>
           <li class="nav-item"><router-link to="/profile" class="nav-link">PROFILE</router-link></li>
@@ -49,7 +49,7 @@ export default {
     }
   },
   methods: {
-    logOut(n) {
+    logOut() {
       localStorage.setItem('logged', false);
       localStorage.setItem('token', 0);
       localStorage.setItem('appliedOferts', '')
