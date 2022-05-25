@@ -79,10 +79,10 @@
                                   class="form-control dropdown-input border-right-0"
                                   v-model="what"
                                   :class="[
-                                    //{ 'border-primary': userIsSearching && whatIsValid },
-                                    //{ 'border-danger': userIsSearching && !whatIsValid },
+                                    //{ 'border-primary': (!userIsSearching) && whatIsValid },
+                                    //{ 'border-danger': (!userIsSearching) && !whatIsValid },
                                   ]"
-                                  @click="userIsSearching = true;"
+                                  @click="userIsSearching = true; what = ''; "
                                 />
                                 <div class="input-group-append">
                                   <span
@@ -97,10 +97,13 @@
 
                                 </div>
                             </template>
-                            <li class="dropdown-content" v-for="(item, index) in uniqueTitlesFiltered"
+                            <div v-if="what.length">
+                              <li class="dropdown-content" v-for="(item, index) in uniqueTitlesFiltered"
                                 :key="index" @click="selectWhat">
                                 {{ item }}
-                            </li>
+                              </li>
+                            </div>
+                            
                         </base-dropdown>
 
                         <!---->
@@ -119,7 +122,7 @@
                                     //{ 'border-primary': userIsSearching && whereIsValid },
                                     //{ 'border-danger': userIsSearching && !whereIsValid },
                                   ]"
-                                  @click="userIsSearching = true;"
+                                  @click="userIsSearching = true; where = ''; "
                                 />
                                 <div class="input-group-append">
                                   <span
@@ -134,10 +137,12 @@
 
                                 </div>
                             </template>
-                            <li class="dropdown-content" v-for="(item, index) in uniqueLocationsFiltered"
-                                :key="index" @click="selectWhere">
-                                {{ item }}
-                            </li>
+                            <div v-if="where.length">
+                              <li class="dropdown-content" v-for="(item, index) in uniqueLocationsFiltered"
+                                  :key="index" @click="selectWhere">
+                                  {{ item }}
+                              </li>
+                            </div>
                         </base-dropdown>
                       </div>
 
@@ -157,7 +162,7 @@
                                     //{ 'border-primary': userIsSearching && educationIsValid },
                                     //{ 'border-danger': userIsSearching && !educationIsValid },
                                   ]"
-                                  @click="userIsSearching = true;"
+                                  @click="userIsSearching = true; education = ''; "
                                 />
                                 <div class="input-group-append">
                                   <span
@@ -192,7 +197,7 @@
                                     //{ 'border-primary': userIsSearching && categoryIsValid },
                                     //{ 'border-danger': userIsSearching && !categoryIsValid },
                                   ]"
-                                  @click="userIsSearching = true;"
+                                  @click="userIsSearching = true; category = ''; "
                                 />
                                 <div class="input-group-append">
                                   <span
@@ -237,6 +242,7 @@
           <div class="col-lg-8 mt-3">
             
             <!-- DISPLAY OFFERTS -->
+            
             <div v-if="lastSearchValid" id="home-results">
               <div class="mb-3 ml-4 mr-4">
                 <h4>
@@ -277,7 +283,22 @@
               </ul>
             </div>
 
+            <!-- FEEDBACK Messages
+            <div v-else-if="firstTimeSearch" id="home-error-results">
+              <div class = "row justify-content text-center">
+                <h4> Oooh... parece que no se han encontrado resultados para tus parámetros de búsqueda.</h4>
+              </div>
+            </div>
+
+            <div v-else id="home-no-results">
+              <div class = "row justify-content text-center">
+                <h4> Introduce los parámetros de búsqueda.</h4>
+              </div>
+            </div>
+            -->
+
           </div>
+
         </div>
       </div>
   </div>
@@ -328,6 +349,7 @@ export default {
       lastResultList: [],
 
       userIsSearching: false,
+      firstTimeSearch: false,
 
       // TODO: json request from url route
       listaOfertas: [
@@ -1066,6 +1088,7 @@ export default {
       this.lastResultList = this.listaOfertasFiltrada;
       this.lastSearchValid = this.newSearchValid;
       this.userIsSearching = false;
+      this.firstTimeSearch = true;
     },
 
     selectWhat(event){

@@ -8,14 +8,14 @@
           <img class="img-startHeader" src="img/logos/logo_AppHeader.png" alt="HeaderLogo">
         </router-link>
         <ul v-if="logged" class="navbar-nav ml-5">
-          <li class="nav-item"><router-link to="/home" class="nav-link">JOB OFFERTS</router-link></li>
-          <li class="nav-item"><router-link to="/profile" class="nav-link">PROFILE</router-link></li>
-          <li class="nav-item"><a class="nav-link" @click="logOut()">LOG OUT</a></li>
+          <li class="nav-item"><router-link to="/home" class="nav-link text-white">JOB OFFERTS</router-link></li>
+          <li class="nav-item"><router-link to="/profile" class="nav-link text-white">PROFILE</router-link></li>
+          <li class="nav-item"><a class="nav-link text-white" @click="logOut()">LOG OUT</a></li>
         </ul>
         <ul v-else class="navbar-nav ml-5">
-          <li class="nav-item"><router-link to="/home" class="nav-link">JOB OFFERTS</router-link></li>
-          <li class="nav-item"><router-link to="/login" class="nav-link">SIGN IN</router-link></li>
-          <li class="nav-item"><router-link to="/register" class="nav-link">SIGN UP</router-link></li>
+          <li class="nav-item"><router-link to="/home" class="nav-link text-white">JOB OFFERTS</router-link></li>
+          <li class="nav-item"><router-link to="/login" class="nav-link text-white">SIGN IN</router-link></li>
+          <li class="nav-item"><router-link to="/register" class="nav-link text-white">SIGN UP</router-link></li>
         </ul>
       </div>
     </nav>
